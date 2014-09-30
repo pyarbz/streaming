@@ -31,7 +31,6 @@ module BitcasaHelper
 #  REDIRECT_URL = ENV[redirect]
 
   # access_token = 'ddddddddddd'
-  # ACCESS_TOKEN = access_token
   ACCESS_TOKEN = ENV[ACCESS_TOKEN]
 
   #取得先
