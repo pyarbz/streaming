@@ -14,7 +14,7 @@ env:
 deploy:
   provider: heroku
   api_key:
-    secure: WW5lddpKZKs9TW6xg4l1PCOY3LsiiY66wQEc6t8MQCGyt5eUdtM8KOdx2Qu+KH/cLFSu+BpIoKTLJMeS0rN2puy/kSj7QVJKd8gVPEjV2bpOky8cheYNZ0KqsQ4j+cbe7pBD18xs+nQup1I5SguKG2JG35w/JJpc3P8izc4XHJM=
-  app: streaming
+    secure: Qu77fhluD4BDUreNMMEHgqDCVDjLpgj1e5Zg6LlOC2CbUCeKZloukxFEDdNyHLQuHvn8eh7FG7LSuS1L6iLez3GpZweS2+F8Ze0FY7PWC0oYeUjcc/SaJmdug8uacQ45ZQur9/4kIBpOgID3IUwaO2cqCcSahBWswqXRT4AnoT8=
+  app: animeshows
   on:
     repo: pyarbz/streaming
