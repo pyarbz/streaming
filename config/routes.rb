@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-
+#  get 'welcome/index'
 #  get 'bitcasa/api'
 #  get 'top/index'
 
   # top page is top/index
-  root 'top#index'
+  # root 'top#index'
+  root 'welcome#index'
 
   # API page is bitcasa/api
   match '/api', to: 'bitcasa#api', via: 'get'
   #  match '/api/folders', to: 'bitcasa#getfolders', via: 'get'
-#  match '/api/file', to: 'bitcasa#getfiles', via: 'get'
+  #  match '/api/file', to: 'bitcasa#getfiles', via: 'get'
 
   match '/api/folders', to: 'bitcasa#getfolders', via: 'get'
   match '/api/file', to: 'bitcasa#getfiles', via: 'get'
