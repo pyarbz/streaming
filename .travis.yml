@@ -1,10 +1,20 @@
 language: ruby
 rvm:
 - 2.1.3
-bundler_args: --without production
+bundler_args: "--without production"
 before_install:
 - gem update --system
 - gem --version
 script:
 - bundle exec rake db:drop db:create db:migrate
 - bundle exec rspec spec
+env:
+  global:
+    secure: "XrfB28vU0Gumfh6FfYS50bu00xBjRKT5qPtlqqNQJglS/VCNBtLvc6JCjevya3fpE4UwTxt0u31weh45qUWvnN8Oq7CjFNWpnLovrhd4RnRyPCIq7Hj0dFBihzlV7uS3NVDKfpRVFRmUkpPP8vWXwvZ1k/GnN0ZvxQhj50BZ4mk="
+deploy:
+  provider: heroku
+  api_key:
+    secure: cD8E4pu8YydgZkDzPaprwFlFfLMR9rubpJsc5E9Fn2gV/tOuSQcJJBHTg6D/PIlgfoBnoidqkD01eZLwAsj02Uo+z9jnTciiGnURybQLX49RrCPQBRl78QM1CgLdXLrO9xXP6B889kqPK/AQgYWWlbszKtEkOvfVTznuPkGds/s=
+  app: streaming
+  on:
+    repo: pyarbz/streaming
