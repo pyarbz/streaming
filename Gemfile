@@ -52,7 +52,6 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
   gem 'newrelic_rpm'
-  gem 'ruby-opencv'
 end
 
 # Use travis CI command
