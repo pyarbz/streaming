@@ -62,4 +62,6 @@ gem 'httpclient'
 
 # OpenCV wrapper
 # Should set the buildpack of travis.yml and heroku is https://github.com/lilibethdlc/heroku-buildpack-ruby-opencv.git
-gem 'ruby-opencv'
+group :development, :production do
+  gem 'ruby-opencv'
+end
