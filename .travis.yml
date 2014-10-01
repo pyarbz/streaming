@@ -10,11 +10,11 @@ script:
 - bundle exec rspec spec
 env:
   global:
-    secure: "XrfB28vU0Gumfh6FfYS50bu00xBjRKT5qPtlqqNQJglS/VCNBtLvc6JCjevya3fpE4UwTxt0u31weh45qUWvnN8Oq7CjFNWpnLovrhd4RnRyPCIq7Hj0dFBihzlV7uS3NVDKfpRVFRmUkpPP8vWXwvZ1k/GnN0ZvxQhj50BZ4mk="
+    secure: XrfB28vU0Gumfh6FfYS50bu00xBjRKT5qPtlqqNQJglS/VCNBtLvc6JCjevya3fpE4UwTxt0u31weh45qUWvnN8Oq7CjFNWpnLovrhd4RnRyPCIq7Hj0dFBihzlV7uS3NVDKfpRVFRmUkpPP8vWXwvZ1k/GnN0ZvxQhj50BZ4mk=
 deploy:
   provider: heroku
   api_key:
-    secure: cD8E4pu8YydgZkDzPaprwFlFfLMR9rubpJsc5E9Fn2gV/tOuSQcJJBHTg6D/PIlgfoBnoidqkD01eZLwAsj02Uo+z9jnTciiGnURybQLX49RrCPQBRl78QM1CgLdXLrO9xXP6B889kqPK/AQgYWWlbszKtEkOvfVTznuPkGds/s=
+    secure: WW5lddpKZKs9TW6xg4l1PCOY3LsiiY66wQEc6t8MQCGyt5eUdtM8KOdx2Qu+KH/cLFSu+BpIoKTLJMeS0rN2puy/kSj7QVJKd8gVPEjV2bpOky8cheYNZ0KqsQ4j+cbe7pBD18xs+nQup1I5SguKG2JG35w/JJpc3P8izc4XHJM=
   app: streaming
   on:
     repo: pyarbz/streaming
