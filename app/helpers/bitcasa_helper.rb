@@ -27,6 +27,7 @@ module BitcasaHelper
       # get request
       data = httpClient.get_content(BASE_URL+'/folders'+@FILE_PATH,params)
       # return JSON.parse data
+      puts "test"
       return data
     rescue HTTPClient::BadResponseError => e
     rescue HTTPClient::TimeoutError => e
