@@ -52,6 +52,7 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
   gem 'newrelic_rpm'
+  gem 'ruby-opencv'
 end
 
 # Use travis CI command
@@ -62,4 +63,4 @@ gem 'httpclient'
 
 # OpenCV wrapper
 # Should set the buildpack of travis.yml and heroku is https://github.com/lilibethdlc/heroku-buildpack-ruby-opencv.git
-gem 'ruby-opencv'
+# gem 'ruby-opencv'
