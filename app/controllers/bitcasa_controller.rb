@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class BitcasaController < ApplicationController
+  # before_filter :authenticate_user! #ログインしている時しかアクセスできないようにする
+
   def api
   end
 

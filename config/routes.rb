@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+      omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 #  get 'welcome/index'
 #  get 'bitcasa/api'
 #  get 'top/index'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   # top page is top/index
   # root 'top#index'
   root 'welcome#index'
+  match '/top', to: 'top#index', as: 'user_root', via: 'get'
 
   # API page is bitcasa/api
   match '/api', to: 'bitcasa#api', via: 'get'
