@@ -59,3 +59,8 @@ gem 'travis'
 
 # Use http Clients
 gem 'httpclient'
+
+# Github Oauth
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
