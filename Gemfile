@@ -64,3 +64,6 @@ gem 'httpclient'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
+
+# cross site domain allowed
+gem 'rack-cors', :require => 'rack/cors'
