@@ -78,4 +78,13 @@ Rails.application.configure do
 
   # Add OmniOauth and Devise Settings
   config.action_mailer.default_url_options = { host: 'a.pyar.bz', port: 80 }
+
+  # allowed cross site domain
+  config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', :headers => :any, :methods => [:get, :post]
+    end
+  end
+
 end
