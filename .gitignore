@@ -47,3 +47,6 @@ bower.json
 
 ## railways cache
 /railways.cache
+
+## assets files
+/public/assets/*
