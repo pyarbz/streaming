@@ -1,2 +1,17 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<article>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-1 col-md-1"></div>
+      <div class="col-lg-10 col-md-10">
+        <h1>Welcome!</h1>
+        <p class="form-signin-github">
+          <%= link_to content_tag(:span, "",
+                                  :class => "octicon octicon-mark-github")+" Sign in via Github",
+                      user_omniauth_authorize_path(:github),
+                      :class => "btn", :id => "oauth" %>
+        </p>
+      </div>
+      <div class="col-lg-1 col-md-1"></div>
+    </div>
+  </div>
+</article>
