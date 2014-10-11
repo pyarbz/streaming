@@ -48,6 +48,7 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
   gem 'newrelic_rpm'
+  gem 'unicorn'
 end
 
 # Use travis CI command
