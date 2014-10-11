@@ -52,10 +52,7 @@ group :production do
 end
 
 # Use travis CI command
-gem 'travis'
-group :test do
-  gem 'rake'
-end
+gem 'travis',          group: :development
 
 # Use http Clients
 gem 'httpclient'
