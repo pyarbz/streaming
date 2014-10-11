@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-migrate-min
+//= require bootstrap-sprockets
+//= require slick
 //= require_tree .
