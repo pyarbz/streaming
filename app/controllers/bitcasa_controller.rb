@@ -7,24 +7,13 @@ class BitcasaController < ApplicationController
   end
 
   def getfolders
-    filepath = params[:filepath]
-
-    # デフォルトのディレクトリの指定
-    if filepath == nil then
-      filepath = '/szeMSv8ITT2qX5Nv6Z_UWA'
-    end
-
-    params = BitcasaHelper.set_params_list(filepath)
-    @list_json = BitcasaHelper.fetch_list(params)
-    render :json => @list_json
+    @getList = BitcasaHelper.get_fileList(params)
+    render :json => @getList
   end
 
   def getfiles
-    filepath = params[:filepath]
-    filename = params[:filename]
-
-    params = BitcasaHelper.set_params_file(filepath,filename)
     @getURL = BitcasaHelper.get_fileURL(params)
     render :json => @getURL
   end
+
 end
