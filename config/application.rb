@@ -22,6 +22,10 @@ module AnimeShow
     # defalut engine HTML
     config.generators.template_engine = :slim
 
+    # default engine CSS
+    config.sass.preferrd_syntax = :sass
+    config.sass.syntax = :sass
+
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'

@@ -6,7 +6,7 @@ article
         h1
           | Welcome!
         p.form-signin-github
-          = link_to content_tag(:span, "", :class => "octicon octicon-mark-github") + " Sign in via Github",
+          = link_to content_tag( :span, "", :class => "octicon octicon-mark-github" ) + " Sign in via Github",
                                   user_omniauth_authorize_path(:github),
                                   :class => "btn",
                                   :id => "oauth"
