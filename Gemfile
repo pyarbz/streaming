@@ -38,9 +38,32 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 # Use sqlite3 as the database for Active Record
+gem 'sqlite3', group: [:development, :test]
+
+# Use http Clients
+gem 'httpclient'
+
+# BDD
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-spring'
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+end
+
+# Debugger
+group :development do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 # heroku settings
@@ -53,9 +76,6 @@ end
 
 # Use travis CI command
 gem 'travis',          group: :development
-
-# Use http Clients
-gem 'httpclient'
 
 # Github Oauth
 gem 'devise'
