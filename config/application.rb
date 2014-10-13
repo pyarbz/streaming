@@ -23,7 +23,7 @@ module AnimeShow
     config.generators.template_engine = :slim
 
     # default engine CSS
-    config.sass.preferrd_syntax = :sass
+    config.sass.preferred_syntax = :sass
     config.sass.syntax = :sass
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
