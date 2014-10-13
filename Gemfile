@@ -71,3 +71,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 # Slick jQuery Plugins
 gem 'slick_rails'
+
+# slim
+gem 'slim-rails'
+gem 'html2slim', group: :development

@@ -1,0 +1,9 @@
+footer
+  .container
+    p
+      | index of Cloud 🐰 
+    #user-info
+      = current_user.name
+      |  [
+      = link_to 'Sign out', destroy_user_session_path, method: :get
+      | ] 
