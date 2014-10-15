@@ -1,18 +1,5 @@
 article
   .container
-    ul.nav.nav-tabs.inverse
-      li.active
-        a[href="#new" data-toggle="tab"]
-          span.glyphicon.glyphicon-tags
-          |  新着
-      li
-        a[href="#animeList" data-toggle="tab"]
-          span.glyphicon.glyphicon-film
-          |  アニメ一覧
-      li
-        a[href="#comicList" data-toggle="tab"]
-          span.glyphicon.glyphicon-book
-          |  漫画一覧
     #myTabContent.tab-content
       #new.tab-pane.fade.in.active
         .row2
@@ -21,126 +8,6 @@ article
           iframe[width="560" height="315" src="http://www.youtube.com/embed/qnX2CdOBcDI" frameborder="0" allowfullscreen]
         #newList
 
-        .row2
-          p.row2-caption
-            | videoTitle
-          .slider.multiple-items
-            div
-              figure
-                a[href="./videos/videoTitle/01.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/01/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/01.mp4"]
-                    | 01
-            div
-              figure
-                a[href="./videos/videoTitle/02.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/02/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/02.mp4"]
-                    | 02
-            div
-              figure
-                a[href="./videos/videoTitle/03.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/03/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/03.mp4"]
-                    | 03
-            div
-              figure
-                a[href="./videos/videoTitle/04.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/04/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/04.mp4"]
-                    | 04
-            div
-              figure
-                a[href="./videos/videoTitle/05.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/05/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/05.mp4"]
-                    | 05
-            div
-              figure
-                a[href="./videos/videoTitle/06.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/06/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/06.mp4"]
-                    | 06
-            div
-              figure
-                a[href="./videos/videoTitle/07.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/07/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/07.mp4"]
-                    | 07
-            div
-              figure
-                a[href="./videos/videoTitle/08.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/08/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/08.mp4"]
-                    | 08
-        .row2
-          p.row2-caption
-            | VideoTitle2
-          .slider.multiple-items
-            div
-              figure
-                a[href="./videos/videoTitle/01.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/01/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/01.mp4"]
-                    | 01
-            div
-              figure
-                a[href="./videos/videoTitle/02.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/02/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/02.mp4"]
-                    | 02
-            div
-              figure
-                a[href="./videos/videoTitle/03.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/03/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/03.mp4"]
-                    | 03
-            div
-              figure
-                a[href="./videos/videoTitle/04.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/04/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/04.mp4"]
-                    | 04
-            div
-              figure
-                a[href="./videos/videoTitle/05.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/05/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/05.mp4"]
-                    | 05
-            div
-              figure
-                a[href="./videos/videoTitle/06.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/06/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/06.mp4"]
-                    | 06
-            div
-              figure
-                a[href="./videos/videoTitle/07.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/07/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/07.mp4"]
-                    | 07
-            div
-              figure
-                a[href="./videos/videoTitle/08.mp4"]
-                  img[src="https://dl.dropboxusercontent.com/u/16268979/streaming/capture/videos/videoTitle/08/thumb00.jpg"]
-                figcaption
-                  a[href="./videos/videoTitle/08.mp4"]
-                    | 08
       #animeList.tab-pane.fade
         table.table.table-striped.table-hover
           thead
@@ -159,15 +26,38 @@ article
                     li
                       a[href="#"]
                         | Hello
-                    li
-                      a[href="#"]
-                        | Hello
-                    li.divider
-                    li
-                      a[href="#"]
-                        | Hello
           tbody
 
       #comicList.tab-pane.fade
         p
           | コンテンツ2
+      #explorer.tab-pane.fade
+        table.table.table-hover
+          thead
+            tr
+              th
+                | フォルダ一覧
+              th[style="text-align: right;"]
+                .btn-group
+                  button.btn.btn-default.dropdown-toggle[type="button" data-toggle="dropdown"]
+                    |  Sort by
+                    span.caret
+                  ul.dropdown-menu[role="menu"]
+
+          tbody#explorerFolders
+
+        table.table.table-hover
+          thead
+            tr
+              th
+                | ファイル一覧
+          tbody#explorerFiles
+
+        video[width="560" height="315" controls autoplay]
+        .loading
+          img[src=asset_path('ajax-loader.gif')]
+          p
+            | now loading...
+        div[style="text-align: right;"]
+          a[href="javascript:void(0);"]
+            | 戻る(戻れない)

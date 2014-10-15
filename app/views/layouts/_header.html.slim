@@ -2,14 +2,15 @@ header
   .container
     p
       span
-        | index of Cloud 🐰
+        | index of Cloud &#128048
       span
-        = link_to image_tag('kokoa.jpg', :style => 'width: 100px;'), asset_path('kokoa2.jpg')
+        a> href = asset_path('kokoa2.jpg')
+          img> src=asset_path('kokoa.jpg')
       span
-        = image_tag('chino.jpg', :style => 'width: 100px;')
+        img> src=asset_path('chino.jpg')
       span
-        = image_tag('rize2.jpg', :style => 'width: 100px;')
+        img> src=asset_path('rize2.jpg')
       span
-        = image_tag('chiya.jpg', :style => 'width: 100px;')
+        img> src=asset_path('chiya.jpg')
       span
-        = image_tag('syaro2.jpg', :style => 'width: 100px;')
+        img> src=asset_path('syaro2.jpg')
