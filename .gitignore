@@ -67,3 +67,6 @@ Desktop.ini
 
 # for aptana studio project file
 .project
+
+# binstubs
+/.bin/

@@ -8,6 +8,6 @@ article
         p.form-signin-github
           = link_to content_tag( :span, "", :class => "octicon octicon-mark-github" ) + " Sign in via Github",
                                   user_omniauth_authorize_path(:github),
-                                  :class => "btn",
+                                  :class => "github-btn",
                                   :id => "oauth"
       .col-lg-1.col-md-1
