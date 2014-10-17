@@ -5,4 +5,7 @@ class BitcasaFile < ActiveRecord::Base
   belongs_to :extension
   belongs_to :genre
   belongs_to :bitcasa_time
+  has_many :bitcasa_file_tags
+  has_many :plays
+  has_many :bookmarks
 end

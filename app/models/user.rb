@@ -1,6 +1,10 @@
 # encoding: utf-8
 
 class User < ActiveRecord::Base
+  # playsとbookmarksテーブル名で使われる
+  has_many :plays
+  has_many :bookmarks
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
