@@ -5,7 +5,6 @@ class CreateBitcasaTimes < ActiveRecord::Migration
       t.datetime :modified_at
       t.datetime :changed_at
 
-      t.timestamps
     end
   end
 end

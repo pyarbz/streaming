@@ -4,7 +4,6 @@ class CreateGenres < ActiveRecord::Migration
       t.string :name
       t.references :category, index: true
 
-      t.timestamps
     end
   end
 end

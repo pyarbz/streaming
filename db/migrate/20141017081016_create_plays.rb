@@ -6,7 +6,6 @@ class CreatePlays < ActiveRecord::Migration
       t.references :user, index: true
       t.references :bitcasa_file, index: true
 
-      t.timestamps
     end
   end
 end

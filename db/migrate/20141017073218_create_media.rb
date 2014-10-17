@@ -3,7 +3,6 @@ class CreateMedia < ActiveRecord::Migration
     create_table :media do |t|
       t.string :name
 
-      t.timestamps
     end
   end
 end

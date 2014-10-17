@@ -8,7 +8,6 @@ class CreateBroadcasts < ActiveRecord::Migration
       t.integer :year
       t.references :season, index: true
 
-      t.timestamps
     end
   end
 end

@@ -5,7 +5,6 @@ class CreateSizes < ActiveRecord::Migration
       t.boolean :high
       t.boolean :blu_ray
 
-      t.timestamps
     end
   end
 end
