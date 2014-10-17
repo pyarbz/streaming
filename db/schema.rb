@@ -14,26 +14,26 @@
 ActiveRecord::Schema.define(version: 20141017092333) do
 
   create_table "bitcasa_file_tags", force: true do |t|
-    t.integer  "bitcasa_file_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "bitcasa_file_id", null: false
+    t.integer  "tag_id",          null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "bitcasa_file_tags", ["bitcasa_file_id"], name: "index_bitcasa_file_tags_on_bitcasa_file_id"
   add_index "bitcasa_file_tags", ["tag_id"], name: "index_bitcasa_file_tags_on_tag_id"
 
   create_table "bitcasa_files", force: true do |t|
-    t.string   "name"
-    t.string   "file_id"
-    t.integer  "path_id"
-    t.integer  "broadcast_id"
-    t.integer  "size_id"
-    t.integer  "extension_id"
-    t.integer  "genre_id"
-    t.integer  "bitcasa_time_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name",            null: false
+    t.string   "file_id",         null: false
+    t.integer  "path_id",         null: false
+    t.integer  "broadcast_id",    null: false
+    t.integer  "size_id",         null: false
+    t.integer  "extension_id",    null: false
+    t.integer  "genre_id",        null: false
+    t.integer  "bitcasa_time_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "bitcasa_files", ["bitcasa_time_id"], name: "index_bitcasa_files_on_bitcasa_time_id"
@@ -44,24 +44,24 @@ ActiveRecord::Schema.define(version: 20141017092333) do
   add_index "bitcasa_files", ["size_id"], name: "index_bitcasa_files_on_size_id"
 
   create_table "bitcasa_folder_tags", force: true do |t|
-    t.integer  "bitcasa_folder_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "bitcasa_folder_id", null: false
+    t.integer  "tag_id",            null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   add_index "bitcasa_folder_tags", ["bitcasa_folder_id"], name: "index_bitcasa_folder_tags_on_bitcasa_folder_id"
   add_index "bitcasa_folder_tags", ["tag_id"], name: "index_bitcasa_folder_tags_on_tag_id"
 
   create_table "bitcasa_folders", force: true do |t|
-    t.string   "name"
-    t.integer  "path_id"
-    t.integer  "genre_id"
-    t.integer  "bitcasa_time_id"
-    t.integer  "size_id"
-    t.integer  "broadcast_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name",            null: false
+    t.integer  "path_id",         null: false
+    t.integer  "genre_id",        null: false
+    t.integer  "bitcasa_time_id", null: false
+    t.integer  "size_id",         null: false
+    t.integer  "broadcast_id",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "bitcasa_folders", ["bitcasa_time_id"], name: "index_bitcasa_folders_on_bitcasa_time_id"
@@ -71,51 +71,51 @@ ActiveRecord::Schema.define(version: 20141017092333) do
   add_index "bitcasa_folders", ["size_id"], name: "index_bitcasa_folders_on_size_id"
 
   create_table "bitcasa_times", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "modified_at"
-    t.datetime "changed_at"
+    t.datetime "created_at",  null: false
+    t.datetime "modified_at", null: false
+    t.datetime "changed_at",  null: false
   end
 
   create_table "bookmarks", force: true do |t|
-    t.integer  "count"
-    t.boolean  "flag"
-    t.integer  "user_id"
-    t.integer  "bitcasa_file_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "count",           default: 0,     null: false
+    t.boolean  "flag",            default: false, null: false
+    t.integer  "user_id",                         null: false
+    t.integer  "bitcasa_file_id",                 null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "bookmarks", ["bitcasa_file_id"], name: "index_bookmarks_on_bitcasa_file_id"
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "broadcasts", force: true do |t|
-    t.boolean "onair"
-    t.boolean "movie"
-    t.boolean "ova"
-    t.boolean "complete"
+    t.boolean "onair",     default: false, null: false
+    t.boolean "movie",     default: false, null: false
+    t.boolean "ova",       default: false, null: false
+    t.boolean "complete",  default: false, null: false
     t.integer "year"
-    t.integer "season_id"
+    t.integer "season_id",                 null: false
   end
 
   add_index "broadcasts", ["season_id"], name: "index_broadcasts_on_season_id"
 
   create_table "categories", force: true do |t|
     t.string  "name"
-    t.integer "media_id"
+    t.integer "media_id", null: false
   end
 
   add_index "categories", ["media_id"], name: "index_categories_on_media_id"
 
   create_table "extensions", force: true do |t|
-    t.string  "name"
-    t.integer "media_id"
+    t.string  "name",     null: false
+    t.integer "media_id", null: false
   end
 
   add_index "extensions", ["media_id"], name: "index_extensions_on_media_id"
 
   create_table "genres", force: true do |t|
     t.string  "name"
-    t.integer "category_id"
+    t.integer "category_id", null: false
   end
 
   add_index "genres", ["category_id"], name: "index_genres_on_category_id"
@@ -125,18 +125,18 @@ ActiveRecord::Schema.define(version: 20141017092333) do
   end
 
   create_table "paths", force: true do |t|
-    t.string   "parent"
-    t.string   "current"
-    t.integer  "depth"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "parent",     null: false
+    t.string   "current",    null: false
+    t.integer  "depth",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "plays", force: true do |t|
-    t.integer  "count"
-    t.datetime "played_at"
-    t.integer  "user_id"
-    t.integer  "bitcasa_file_id"
+    t.integer  "count",           default: 0, null: false
+    t.datetime "played_at",                   null: false
+    t.integer  "user_id",                     null: false
+    t.integer  "bitcasa_file_id",             null: false
   end
 
   add_index "plays", ["bitcasa_file_id"], name: "index_plays_on_bitcasa_file_id"
@@ -147,15 +147,15 @@ ActiveRecord::Schema.define(version: 20141017092333) do
   end
 
   create_table "sizes", force: true do |t|
-    t.integer "size"
-    t.boolean "high"
-    t.boolean "blu_ray"
+    t.integer "size",    limit: 8,                 null: false
+    t.boolean "high",              default: false, null: false
+    t.boolean "blu_ray",           default: false, null: false
   end
 
   create_table "tags", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: true do |t|

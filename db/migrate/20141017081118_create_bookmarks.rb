@@ -1,12 +1,12 @@
 class CreateBookmarks < ActiveRecord::Migration
   def change
     create_table :bookmarks do |t|
-      t.integer :count
-      t.boolean :flag
-      t.references :user, index: true
-      t.references :bitcasa_file, index: true
+      t.integer :count, null: false, default: 0
+      t.boolean :flag, null: false, default: false
+      t.references :user, index: true, null: false
+      t.references :bitcasa_file, index: true, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
