@@ -7,5 +7,6 @@ FactoryGirl.define do
     genre nil
     bitcasa_time nil
     size nil
+    broadcast nil
   end
 end

@@ -6,6 +6,7 @@ class CreateBitcasaFolders < ActiveRecord::Migration
       t.references :genre, index: true
       t.references :bitcasa_time, index: true
       t.references :size, index: true
+      t.references :broadcast, index: true
 
       t.timestamps
     end
