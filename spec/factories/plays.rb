@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :play do
     count 1
-    played_at "2014-10-17 23:45:07"
+    played_at "2014-10-18 00:48:07"
   end
 end
