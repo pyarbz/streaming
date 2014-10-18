@@ -1,4 +1,5 @@
 class BitcasaFile < ActiveRecord::Base
+  belongs_to :mimetype
   belongs_to :extension
   belongs_to :category
   belongs_to :media

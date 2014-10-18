@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018135525) do
+ActiveRecord::Schema.define(version: 20141018164229) do
 
   create_table "bitcasa_file_tags", force: true do |t|
     t.integer  "bitcasa_file_id", null: false
@@ -26,18 +26,20 @@ ActiveRecord::Schema.define(version: 20141018135525) do
   create_table "bitcasa_files", force: true do |t|
     t.string   "name",         null: false
     t.string   "file_id",      null: false
+    t.integer  "mimetype_id",  null: false
     t.integer  "extension_id", null: false
     t.integer  "category_id"
     t.integer  "media_id"
     t.integer  "genre_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "bitcasa_files", ["category_id"], name: "index_bitcasa_files_on_category_id"
   add_index "bitcasa_files", ["extension_id"], name: "index_bitcasa_files_on_extension_id"
   add_index "bitcasa_files", ["genre_id"], name: "index_bitcasa_files_on_genre_id"
   add_index "bitcasa_files", ["media_id"], name: "index_bitcasa_files_on_media_id"
+  add_index "bitcasa_files", ["mimetype_id"], name: "index_bitcasa_files_on_mimetype_id"
 
   create_table "bitcasa_folder_tags", force: true do |t|
     t.integer  "bitcasa_folder_id", null: false
@@ -122,12 +124,14 @@ ActiveRecord::Schema.define(version: 20141018135525) do
   add_index "details", ["year_id"], name: "index_details_on_year_id"
 
   create_table "extension_media", force: true do |t|
+    t.integer "mimetype_id"
     t.integer "extension_id", null: false
     t.integer "media_id",     null: false
   end
 
   add_index "extension_media", ["extension_id"], name: "index_extension_media_on_extension_id"
   add_index "extension_media", ["media_id"], name: "index_extension_media_on_media_id"
+  add_index "extension_media", ["mimetype_id"], name: "index_extension_media_on_mimetype_id"
 
   create_table "extensions", force: true do |t|
     t.string "name", null: false
@@ -139,6 +143,10 @@ ActiveRecord::Schema.define(version: 20141018135525) do
 
   create_table "media", force: true do |t|
     t.string "name", null: false
+  end
+
+  create_table "mimetypes", force: true do |t|
+    t.string "name"
   end
 
   create_table "plays", force: true do |t|
