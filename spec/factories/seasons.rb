@@ -3,6 +3,5 @@
 FactoryGirl.define do
   factory :season do
     name "MyString"
-    broadcast nil
   end
 end

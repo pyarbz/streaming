@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :extension do
     name "MyString"
-    bitcasa_file nil
+    media nil
   end
 end

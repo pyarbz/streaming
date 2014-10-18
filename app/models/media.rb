@@ -1,4 +1,4 @@
 class Media < ActiveRecord::Base
-  belongs_to :category
-  belongs_to :extension
+  has_many :categories
+  has_many :extensions
 end

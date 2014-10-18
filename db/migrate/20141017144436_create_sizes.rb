@@ -4,8 +4,8 @@ class CreateSizes < ActiveRecord::Migration
       t.integer :size, null: false, default: 0, limit: 8
       t.boolean :high, null: false, default: false
       t.boolean :blu_ray, null: false, default: false
-      t.references :bitcasa_file, index: true, null: false
-      t.references :bitcasa_folder, index: true, null: false
+      t.references :bitcasa_file, index: true
+      t.references :bitcasa_folder, index: true
     end
   end
 end

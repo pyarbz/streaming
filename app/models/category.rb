@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :genre
-  has_many :medias
+  belongs_to :media
+  has_many :genres
 end

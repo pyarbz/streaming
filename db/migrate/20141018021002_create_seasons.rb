@@ -1,8 +1,7 @@
 class CreateSeasons < ActiveRecord::Migration
   def change
     create_table :seasons do |t|
-      t.string :name, unique: true
-      t.references :broadcast, index: true, null: false
+      t.string :name, null: false, unique: true
     end
   end
 end

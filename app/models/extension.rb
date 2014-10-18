@@ -1,4 +1,4 @@
 class Extension < ActiveRecord::Base
-  belongs_to :bitcasa_file
-  has_many :medias
+  belongs_to :media
+  has_many :bitcasa_files
 end

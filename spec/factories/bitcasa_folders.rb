@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :bitcasa_folder do
     name "MyString"
+    genre nil
   end
 end

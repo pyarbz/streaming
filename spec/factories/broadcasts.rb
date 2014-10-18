@@ -6,7 +6,8 @@ FactoryGirl.define do
     movie false
     ova false
     complete false
-    year 1
+    year nil
+    season nil
     bitcasa_file nil
     bitcasa_folder nil
   end

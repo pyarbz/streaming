@@ -4,5 +4,7 @@ FactoryGirl.define do
   factory :bookmark do
     count 1
     flag false
+    user nil
+    bitcasa_file nil
   end
 end

@@ -5,9 +5,10 @@ class CreateBroadcasts < ActiveRecord::Migration
       t.boolean :movie, null: false, default: false
       t.boolean :ova, null: false, default: false
       t.boolean :complete, null: false, default: false
-      t.integer :year
-      t.references :bitcasa_file, index: true, null: false
-      t.references :bitcasa_folder, index: true, null: false
+      t.references :year, index: true
+      t.references :season, index: true
+      t.references :bitcasa_file, index: true
+      t.references :bitcasa_folder, index: true
     end
   end
 end

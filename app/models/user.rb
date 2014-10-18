@@ -2,8 +2,8 @@
 
 class User < ActiveRecord::Base
   # playsとbookmarksテーブル名で使われる
-  belongs_to :play
-  belongs_to :bookmark
+  has_many :plays, :dependent => :destroy
+  has_many :bookmarks, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

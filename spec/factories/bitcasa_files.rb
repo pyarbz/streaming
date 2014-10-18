@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :bitcasa_file do
     name "MyString"
     file_id "MyString"
-    play nil
-    bookmark nil
+    genre nil
+    extension nil
   end
 end
