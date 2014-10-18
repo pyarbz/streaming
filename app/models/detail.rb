@@ -1,4 +1,4 @@
-class Broadcast < ActiveRecord::Base
+class Detail < ActiveRecord::Base
   belongs_to :year
   belongs_to :season
   belongs_to :bitcasa_file

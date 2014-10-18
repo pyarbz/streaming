@@ -1,12 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :bitcasa_file do
-    name "MyString"
-    file_id "MyString"
+  factory :extension_medium, :class => 'ExtensionMedia' do
     extension nil
-    category nil
     media nil
-    genre nil
   end
 end

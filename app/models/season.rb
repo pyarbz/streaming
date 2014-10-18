@@ -1,3 +1,3 @@
 class Season < ActiveRecord::Base
-  has_many :broadcasts, :dependent => :nullify
+  has_many :details, :dependent => :nullify
 end
