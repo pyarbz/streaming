@@ -43,6 +43,9 @@ gem 'sqlite3', group: [:development, :test]
 # Use http Clients
 gem 'httpclient'
 
+# database settings
+gem 'foreigner'
+
 # BDD
 group :development, :test do
   gem 'rspec-rails'

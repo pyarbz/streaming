@@ -82,6 +82,8 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.6)
+    foreigner (1.6.1)
+      activerecord (>= 3.0.0)
     formatador (0.2.5)
     gh (0.13.2)
       addressable
@@ -317,6 +319,7 @@ DEPENDENCIES
   capybara
   devise
   factory_girl_rails
+  foreigner
   guard-livereload
   guard-rspec
   guard-spring

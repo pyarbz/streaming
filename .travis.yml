@@ -18,3 +18,4 @@ deploy:
   app: animeshows
   on:
     repo: pyarbz/streaming
+  run: "rake db:migrate"
