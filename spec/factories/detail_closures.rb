@@ -1,8 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :category_genre do
-    category nil
-    genre nil
+  factory :detail_closure do
+    depth 1
+    detail nil
   end
 end

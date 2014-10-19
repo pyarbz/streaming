@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :extension do
     name "MyString"
+    media nil
   end
 end

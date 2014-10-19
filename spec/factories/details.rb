@@ -2,12 +2,10 @@
 
 FactoryGirl.define do
   factory :detail do
-    parent_path "MyString"
-    current_path "MyString"
-    depth 1
-    bitcasa_created_at "2014-10-18 22:55:25"
-    bitcasa_modified_at "2014-10-18 22:55:25"
-    bitcasa_changed_at "2014-10-18 22:55:25"
+    path "MyString"
+    bitcasa_created_at "2014-10-19 19:35:55"
+    bitcasa_modified_at "2014-10-19 19:35:55"
+    bitcasa_changed_at "2014-10-19 19:35:55"
     size 1
     high_definition false
     blu_ray false
@@ -17,7 +15,8 @@ FactoryGirl.define do
     complete false
     year nil
     season nil
-    bitcasa_file nil
-    bitcasa_folder nil
+    category nil
+    media nil
+    genre nil
   end
 end

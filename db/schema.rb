@@ -11,58 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018164229) do
-
-  create_table "bitcasa_file_tags", force: true do |t|
-    t.integer  "bitcasa_file_id", null: false
-    t.integer  "tag_id",          null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "bitcasa_file_tags", ["bitcasa_file_id"], name: "index_bitcasa_file_tags_on_bitcasa_file_id"
-  add_index "bitcasa_file_tags", ["tag_id"], name: "index_bitcasa_file_tags_on_tag_id"
+ActiveRecord::Schema.define(version: 20141019103717) do
 
   create_table "bitcasa_files", force: true do |t|
-    t.string   "name",         null: false
-    t.string   "file_id",      null: false
-    t.integer  "mimetype_id",  null: false
-    t.integer  "extension_id", null: false
-    t.integer  "category_id"
-    t.integer  "media_id"
-    t.integer  "genre_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "name",         null: false
+    t.string  "file_id",      null: false
+    t.integer "mimetype_id",  null: false
+    t.integer "extension_id", null: false
+    t.integer "detail_id",    null: false
   end
 
-  add_index "bitcasa_files", ["category_id"], name: "index_bitcasa_files_on_category_id"
+  add_index "bitcasa_files", ["detail_id"], name: "index_bitcasa_files_on_detail_id"
   add_index "bitcasa_files", ["extension_id"], name: "index_bitcasa_files_on_extension_id"
-  add_index "bitcasa_files", ["genre_id"], name: "index_bitcasa_files_on_genre_id"
-  add_index "bitcasa_files", ["media_id"], name: "index_bitcasa_files_on_media_id"
+  add_index "bitcasa_files", ["file_id"], name: "index_bitcasa_files_on_file_id", unique: true
   add_index "bitcasa_files", ["mimetype_id"], name: "index_bitcasa_files_on_mimetype_id"
 
-  create_table "bitcasa_folder_tags", force: true do |t|
-    t.integer  "bitcasa_folder_id", null: false
-    t.integer  "tag_id",            null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "bitcasa_folder_tags", ["bitcasa_folder_id"], name: "index_bitcasa_folder_tags_on_bitcasa_folder_id"
-  add_index "bitcasa_folder_tags", ["tag_id"], name: "index_bitcasa_folder_tags_on_tag_id"
-
   create_table "bitcasa_folders", force: true do |t|
-    t.string   "name",        null: false
-    t.integer  "category_id"
-    t.integer  "media_id"
-    t.integer  "genre_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string  "name",      null: false
+    t.integer "detail_id", null: false
   end
 
-  add_index "bitcasa_folders", ["category_id"], name: "index_bitcasa_folders_on_category_id"
-  add_index "bitcasa_folders", ["genre_id"], name: "index_bitcasa_folders_on_genre_id"
-  add_index "bitcasa_folders", ["media_id"], name: "index_bitcasa_folders_on_media_id"
+  add_index "bitcasa_folders", ["detail_id"], name: "index_bitcasa_folders_on_detail_id"
 
   create_table "bookmarks", force: true do |t|
     t.integer  "count",           default: 0,     null: false
@@ -77,29 +46,32 @@ ActiveRecord::Schema.define(version: 20141018164229) do
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "categories", force: true do |t|
-    t.string "name", null: false
+    t.string  "name",     null: false
+    t.integer "media_id", null: false
   end
 
-  create_table "category_genres", force: true do |t|
-    t.integer "category_id", null: false
-    t.integer "genre_id",    null: false
+  add_index "categories", ["media_id"], name: "index_categories_on_media_id"
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+
+  create_table "detail_closures", force: true do |t|
+    t.integer "depth",     null: false
+    t.integer "detail_id", null: false
   end
 
-  add_index "category_genres", ["category_id"], name: "index_category_genres_on_category_id"
-  add_index "category_genres", ["genre_id"], name: "index_category_genres_on_genre_id"
+  add_index "detail_closures", ["detail_id"], name: "index_detail_closures_on_detail_id"
 
-  create_table "category_media", force: true do |t|
-    t.integer "category_id", null: false
-    t.integer "media_id",    null: false
+  create_table "detail_tags", force: true do |t|
+    t.integer  "detail_id",  null: false
+    t.integer  "tag_id",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "category_media", ["category_id"], name: "index_category_media_on_category_id"
-  add_index "category_media", ["media_id"], name: "index_category_media_on_media_id"
+  add_index "detail_tags", ["detail_id"], name: "index_detail_tags_on_detail_id"
+  add_index "detail_tags", ["tag_id"], name: "index_detail_tags_on_tag_id"
 
   create_table "details", force: true do |t|
-    t.string   "parent_path",                                   null: false
-    t.string   "current_path",                                  null: false
-    t.integer  "depth",                                         null: false
+    t.string   "path",                                          null: false
     t.datetime "bitcasa_created_at",                            null: false
     t.datetime "bitcasa_modified_at",                           null: false
     t.datetime "bitcasa_changed_at",                            null: false
@@ -112,42 +84,48 @@ ActiveRecord::Schema.define(version: 20141018164229) do
     t.boolean  "complete",                      default: false, null: false
     t.integer  "year_id"
     t.integer  "season_id"
-    t.integer  "bitcasa_file_id"
-    t.integer  "bitcasa_folder_id"
+    t.integer  "category_id"
+    t.integer  "media_id"
+    t.integer  "genre_id"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
   end
 
-  add_index "details", ["bitcasa_file_id"], name: "index_details_on_bitcasa_file_id"
-  add_index "details", ["bitcasa_folder_id"], name: "index_details_on_bitcasa_folder_id"
+  add_index "details", ["category_id"], name: "index_details_on_category_id"
+  add_index "details", ["genre_id"], name: "index_details_on_genre_id"
+  add_index "details", ["media_id"], name: "index_details_on_media_id"
   add_index "details", ["season_id"], name: "index_details_on_season_id"
   add_index "details", ["year_id"], name: "index_details_on_year_id"
 
-  create_table "extension_media", force: true do |t|
-    t.integer "mimetype_id"
-    t.integer "extension_id", null: false
-    t.integer "media_id",     null: false
-  end
-
-  add_index "extension_media", ["extension_id"], name: "index_extension_media_on_extension_id"
-  add_index "extension_media", ["media_id"], name: "index_extension_media_on_media_id"
-  add_index "extension_media", ["mimetype_id"], name: "index_extension_media_on_mimetype_id"
-
   create_table "extensions", force: true do |t|
-    t.string "name", null: false
+    t.string  "name",     null: false
+    t.integer "media_id", null: false
   end
+
+  add_index "extensions", ["media_id"], name: "index_extensions_on_media_id"
+  add_index "extensions", ["name"], name: "index_extensions_on_name", unique: true
 
   create_table "genres", force: true do |t|
-    t.string "name", null: false
+    t.string  "name",        null: false
+    t.integer "category_id", null: false
   end
+
+  add_index "genres", ["category_id"], name: "index_genres_on_category_id"
+  add_index "genres", ["name"], name: "index_genres_on_name", unique: true
 
   create_table "media", force: true do |t|
     t.string "name", null: false
   end
 
+  add_index "media", ["name"], name: "index_media_on_name", unique: true
+
   create_table "mimetypes", force: true do |t|
-    t.string "name"
+    t.string  "name",     null: false
+    t.integer "media_id", null: false
   end
+
+  add_index "mimetypes", ["media_id"], name: "index_mimetypes_on_media_id"
+  add_index "mimetypes", ["name"], name: "index_mimetypes_on_name", unique: true
 
   create_table "plays", force: true do |t|
     t.integer  "count",           default: 0, null: false
@@ -163,11 +141,13 @@ ActiveRecord::Schema.define(version: 20141018164229) do
     t.string "name", null: false
   end
 
+  add_index "seasons", ["name"], name: "index_seasons_on_name", unique: true
+
   create_table "tags", force: true do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name", null: false
   end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -190,9 +170,12 @@ ActiveRecord::Schema.define(version: 20141018164229) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
   create_table "years", force: true do |t|
     t.integer "year", null: false
   end
+
+  add_index "years", ["year"], name: "index_years_on_year", unique: true
 
 end

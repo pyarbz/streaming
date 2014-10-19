@@ -6,8 +6,6 @@ FactoryGirl.define do
     file_id "MyString"
     mimetype nil
     extension nil
-    category nil
-    media nil
-    genre nil
+    detail nil
   end
 end

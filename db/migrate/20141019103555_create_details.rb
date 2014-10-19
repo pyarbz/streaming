@@ -1,9 +1,7 @@
 class CreateDetails < ActiveRecord::Migration
   def change
     create_table :details do |t|
-      t.string :parent_path, null: false
-      t.string :current_path, null: false
-      t.integer :depth, null: false
+      t.string :path, null: false
       t.datetime :bitcasa_created_at, null: false
       t.datetime :bitcasa_modified_at, null: false
       t.datetime :bitcasa_changed_at, null: false
@@ -16,8 +14,9 @@ class CreateDetails < ActiveRecord::Migration
       t.boolean :complete, null: false, default: false
       t.references :year, index: true
       t.references :season, index: true
-      t.references :bitcasa_file, index: true
-      t.references :bitcasa_folder, index: true
+      t.references :category, index: true
+      t.references :media, index: true
+      t.references :genre, index: true
 
       t.timestamps null: false
     end
