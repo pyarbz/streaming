@@ -11,8 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require jquery-migrate-min
-//= require bootstrap-sprockets
-//= require slick
+//= require jquery-migrate/jquery-migrate
+//= require jquery-ujs
+//= require magnific-popup
+//= require bootstrap
+//= require html5shiv
+//= require respond
+//= require slick.js/slick/slick
+//= require sprintf
+//= require videojs
 //= require_tree .
