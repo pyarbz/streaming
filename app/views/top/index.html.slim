@@ -5,7 +5,8 @@ article
         .row2
           p.row2-caption
             | ハチ MV「ドーナツホール」 HACHI/DONUT HOLE
-          iframe[width="560" height="315" src="http://www.youtube.com/embed/qnX2CdOBcDI" frameborder="0" allowfullscreen]
+          .embed-responsive.embed-responsive-16by9
+            iframe[src="http://www.youtube.com/embed/qnX2CdOBcDI" frameborder="0" allowfullscreen]
         #newList
 
       #animeList.tab-pane.fade
@@ -17,12 +18,13 @@ article
               th[style="text-align: right;"]
                 .btn-group
                   button.btn.btn-default.dropdown-toggle[type="button" data-toggle="dropdown"]
-                    |  Sort by 
+                    |  Sort by
                     span.caret
                   ul.dropdown-menu[role="menu"]
                     li
                       a[href="#"]
                         | Hello
+                    li.divider
                     li
                       a[href="#"]
                         | Hello
@@ -53,7 +55,7 @@ article
                 | ファイル一覧
           tbody#explorerFiles
 
-        video[width="560" height="315" controls autoplay]
+        video#playVideo.video-js.vjs-default-skin
         .loading
           img[src=asset_path('ajax-loader.gif')]
           p

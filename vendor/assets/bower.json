@@ -1,0 +1,16 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "html5shiv": "latest",
+    "respond": "latest",
+    "jquery": "latest",
+    "jquery-migrate": "latest",
+    "jquery-ujs": "latest",
+    "bootstrap": "latest",
+    "octicons": "latest",
+    "videojs": "latest",
+    "sprintf": "latest",
+    "magnific-popup": "latest",
+    "slick.js": "latest"
+  }
+}
