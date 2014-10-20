@@ -10,14 +10,4 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery-migrate/jquery-migrate
-//= require jquery-ujs
-//= require magnific-popup
-//= require bootstrap
-//= require html5shiv
-//= require respond
-//= require slick.js/slick/slick
-//= require sprintf
-//= require videojs
 //= require_tree .

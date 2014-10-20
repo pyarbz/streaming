@@ -6,6 +6,24 @@ html[lang="ja"]
     title
       | Streaming
     = favicon_link_tag 'favicon.ico'
+    / CDN installation /
+    link[rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen"]
+    link[rel="stylesheet" href="//vjs.zencdn.net/4.9/video-js.css"]
+    link[rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/magnific-popup.css"]
+    link[rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.3.11/slick.css"]
+    link[rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.min.css"]
+    |  <!-[if lt IE 9]>
+    script[src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"]
+    script[src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"]
+    |  <![endif]->
+    script[src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"]
+    script[src="//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"]
+    script[src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"]
+    script[src="//vjs.zencdn.net/4.9/video.js"]
+    script[src="//cdnjs.cloudflare.com/ajax/libs/sprintf/0.0.7/sprintf.min.js"]
+    script[src="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js"]
+    script[src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.3.11/slick.min.js"]
+    / end CDN /
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
