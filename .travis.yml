@@ -1,7 +1,7 @@
 language: ruby
 rvm:
 - 2.1.2
-bundler_args: "--without production"
+bundler_args: "--without development:production"
 before_install:
   - gem update --system
   - gem --version
@@ -24,5 +24,4 @@ deploy:
   on:
     repo: pyarbz/streaming
   run:
-    - "rake bower:install:deployment"
     - "rake db:migrate"
