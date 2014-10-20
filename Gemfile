@@ -96,6 +96,3 @@ gem 'rack-cors', :require => 'rack/cors'
 # slim
 gem 'slim-rails'
 gem 'html2slim', group: :development
-
-# bower-javascript and css
-gem 'bower-rails'
