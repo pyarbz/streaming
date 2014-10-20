@@ -9,7 +9,7 @@ before_install:
   - nvm use v0.10.32
   - npm install -g bower
 script:
-  - bundle exec rake bower:install:deployment
+  - bower install
   - bundle exec rake db:drop db:create db:migrate
   - bundle exec rspec spec
 env:
