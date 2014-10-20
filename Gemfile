@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -96,3 +97,16 @@ gem 'rack-cors', :require => 'rack/cors'
 # slim
 gem 'slim-rails'
 gem 'html2slim', group: :development
+
+# rails assets on bower
+# gem 'rails-assets-html5shiv'
+# gem 'rails-assets-respond'
+# gem 'rails-assets-jquery'
+# gem 'rails-assets-jquery-migrate'
+# gem 'rails-assets-jquery-ujs'
+# gem 'rails-assets-bootstrap'
+# gem 'rails-assets-octicons'
+# gem 'rails-assets-videojs'
+# gem 'rails-assets-sprintf'
+# gem 'rails-assets-magnific-popup'
+# gem 'rails-assets-slick.js'
