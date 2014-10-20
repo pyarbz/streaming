@@ -17,7 +17,6 @@ env:
     secure: XrfB28vU0Gumfh6FfYS50bu00xBjRKT5qPtlqqNQJglS/VCNBtLvc6JCjevya3fpE4UwTxt0u31weh45qUWvnN8Oq7CjFNWpnLovrhd4RnRyPCIq7Hj0dFBihzlV7uS3NVDKfpRVFRmUkpPP8vWXwvZ1k/GnN0ZvxQhj50BZ4mk=
 deploy:
   provider: heroku
-  buildpack: https://github.com/ddollar/heroku-buildpack-multi.git
   api_key:
     secure: Qu77fhluD4BDUreNMMEHgqDCVDjLpgj1e5Zg6LlOC2CbUCeKZloukxFEDdNyHLQuHvn8eh7FG7LSuS1L6iLez3GpZweS2+F8Ze0FY7PWC0oYeUjcc/SaJmdug8uacQ45ZQur9/4kIBpOgID3IUwaO2cqCcSahBWswqXRT4AnoT8=
   app: animeshows
