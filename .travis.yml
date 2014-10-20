@@ -23,3 +23,6 @@ deploy:
   app: animeshows
   on:
     repo: pyarbz/streaming
+  run:
+    - "rake bower:install:deployment"
+    - "rake db:migrate"
