@@ -1,4 +1,4 @@
-class Media < ActiveRecord::Base
+class Medium < ActiveRecord::Base
   has_many :details, :dependent => :nullify
   has_many :bitcasa_files, :through => :details
   has_many :bitcasa_folders, :through => :details

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
+# source 'https://rails-assets.org'
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -71,10 +71,13 @@ group :development do
   gem 'hirb-unicode'
 end
 
+# Postgresql settings
+gem 'pg', group: [:development, :production]
+
 # heroku settings
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
+  # gem 'pg'
   gem 'newrelic_rpm'
   gem 'unicorn'
 end

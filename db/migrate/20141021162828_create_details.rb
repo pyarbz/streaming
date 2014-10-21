@@ -15,10 +15,15 @@ class CreateDetails < ActiveRecord::Migration
       t.references :year, index: true
       t.references :season, index: true
       t.references :category, index: true
-      t.references :media, index: true
+      t.references :medium, index: true
       t.references :genre, index: true
 
       t.timestamps null: false
     end
+    add_foreign_key :details, :years
+    add_foreign_key :details, :seasons
+    add_foreign_key :details, :categories
+    add_foreign_key :details, :media
+    add_foreign_key :details, :genres
   end
 end

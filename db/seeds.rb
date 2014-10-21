@@ -17,8 +17,9 @@ for year_num in 2000..2015 do
   Year.create(year: year_num)
 end
 
+
 # start video settings
-video = Media.create(name: "video")
+video = Medium.create(name: "video")
 video.extensions.create(name: "mp4")
 video.extensions.create(name: "flv")
 video.extensions.create(name: "avi")
@@ -40,7 +41,7 @@ video.categories.create(name: "実写")
 
 # start audio settings
 
-audio = Media.create(name: "audio")
+audio = Medium.create(name: "audio")
 audio.extensions.create(name: "wav")
 audio.extensions.create(name: "aif")
 audio.extensions.create(name: "aiff")
@@ -58,23 +59,23 @@ audio.categories.create(name: "素材")
 
 # start image settings
 
-picture = Media.create(name: "image")
+picture = Medium.create(name: "image")
 picture.extensions.create(name: "jpeg")
 picture.extensions.create(name: "jpg")
 picture.extensions.create(name: "png")
 picture.extensions.create(name: "gif")
 
 picture.categories.create(name: "漫画")
-picture.categories.create(name: "勉強")
-picture.categories.create(name: "素材")
+# picture.categories.create(name: "勉強")
+# picture.categories.create(name: "素材")
 picture.categories.create(name: "写真")
 picture.categories.create(name: "壁紙")
 
 # end image settings
 
 # start document settings
-text = Media.create(name: "document")
-text.categories.create(name: "勉強")
+text = Medium.create(name: "document")
+# text.categories.create(name: "勉強")
 text.categories.create(name: "メモ")
 text.categories.create(name: "仕事")
 text.extensions.create(name: "pdf")
@@ -87,7 +88,7 @@ text.extensions.create(name: "xlsx")
 # end document settings
 
 # start archive settings
-archive = Media.create(name: "archive")
+archive = Medium.create(name: "archive")
 archive.extensions.create(name: "zip")
 archive.extensions.create(name: "rar")
 archive.extensions.create(name: "7z")
