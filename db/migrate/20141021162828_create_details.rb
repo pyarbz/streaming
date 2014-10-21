@@ -20,10 +20,5 @@ class CreateDetails < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :details, :years
-    add_foreign_key :details, :seasons
-    add_foreign_key :details, :categories
-    add_foreign_key :details, :media
-    add_foreign_key :details, :genres
   end
 end

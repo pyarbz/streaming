@@ -5,6 +5,5 @@ class CreateExtensions < ActiveRecord::Migration
       t.references :medium, index: true, null: false
     end
     add_index :extensions, :name, unique: true
-    add_foreign_key :extensions, :media
   end
 end

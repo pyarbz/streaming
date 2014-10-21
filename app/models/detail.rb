@@ -8,4 +8,5 @@ class Detail < ActiveRecord::Base
   has_many :bitcasa_folders, :dependent => :destroy
   has_many :detail_tags, :dependent => :destroy
   has_many :tags, :through => :detail_tags
+  has_many :detail_closures, :dependent => :destroy
 end

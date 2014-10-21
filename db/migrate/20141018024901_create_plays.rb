@@ -6,7 +6,5 @@ class CreatePlays < ActiveRecord::Migration
       t.references :user, index: true, null: false
       t.references :bitcasa_file, index: true, null: false
     end
-    add_foreign_key :plays, :users
-
   end
 end

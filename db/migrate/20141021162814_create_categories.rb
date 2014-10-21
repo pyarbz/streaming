@@ -5,6 +5,5 @@ class CreateCategories < ActiveRecord::Migration
       t.references :medium, index: true, null: false
     end
     add_index :categories, :name, unique: true
-    add_foreign_key :categories, :media
   end
 end

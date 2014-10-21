@@ -5,6 +5,5 @@ class CreateMimetypes < ActiveRecord::Migration
       t.references :medium, index: true, null: false
     end
     add_index :mimetypes, :name, unique: true
-    add_foreign_key :mimetypes, :media
   end
 end
