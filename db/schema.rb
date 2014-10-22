@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021201205) do
+ActiveRecord::Schema.define(version: 20141021162828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,37 +179,5 @@ ActiveRecord::Schema.define(version: 20141021201205) do
   end
 
   add_index "years", ["year"], name: "index_years_on_year", unique: true, using: :btree
-
-  add_foreign_key "bitcasa_files", "details", name: "bitcasa_files_detail_id_fk", dependent: :delete
-  add_foreign_key "bitcasa_files", "extensions", name: "bitcasa_files_extension_id_fk", dependent: :nullify
-  add_foreign_key "bitcasa_files", "mimetypes", name: "bitcasa_files_mimetype_id_fk", dependent: :nullify
-
-  add_foreign_key "bitcasa_folders", "details", name: "bitcasa_folders_detail_id_fk", dependent: :delete
-
-  add_foreign_key "bookmarks", "bitcasa_files", name: "bookmarks_bitcasa_file_id_fk", dependent: :delete
-  add_foreign_key "bookmarks", "users", name: "bookmarks_user_id_fk", dependent: :delete
-
-  add_foreign_key "categories", "media", name: "categories_medium_id_fk", dependent: :delete
-
-  add_foreign_key "detail_closures", "details", name: "detail_closures_ancestor_detail_id_fk", column: "ancestor_detail_id", dependent: :delete
-  add_foreign_key "detail_closures", "details", name: "detail_closures_descendant_detail_id_fk", column: "descendant_detail_id", dependent: :delete
-
-  add_foreign_key "detail_tags", "details", name: "detail_tags_detail_id_fk", dependent: :delete
-  add_foreign_key "detail_tags", "tags", name: "detail_tags_tag_id_fk", dependent: :delete
-
-  add_foreign_key "details", "categories", name: "details_category_id_fk", dependent: :nullify
-  add_foreign_key "details", "genres", name: "details_genre_id_fk", dependent: :nullify
-  add_foreign_key "details", "media", name: "details_medium_id_fk", dependent: :nullify
-  add_foreign_key "details", "seasons", name: "details_season_id_fk", dependent: :nullify
-  add_foreign_key "details", "years", name: "details_year_id_fk", dependent: :nullify
-
-  add_foreign_key "extensions", "media", name: "extensions_medium_id_fk", dependent: :delete
-
-  add_foreign_key "genres", "categories", name: "genres_category_id_fk", dependent: :delete
-
-  add_foreign_key "mimetypes", "media", name: "mimetypes_medium_id_fk", dependent: :delete
-
-  add_foreign_key "plays", "bitcasa_files", name: "plays_bitcasa_file_id_fk", dependent: :delete
-  add_foreign_key "plays", "users", name: "plays_user_id_fk", dependent: :delete
 
 end
