@@ -5,5 +5,4 @@ class Medium < ActiveRecord::Base
   has_many :extensions
   has_many :mimetypes
   has_many :categories
-  has_many :genres, :through => :categories
 end
