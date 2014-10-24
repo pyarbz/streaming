@@ -116,3 +116,7 @@ gem 'html2slim', group: :development
 # gem 'rails-assets-sprintf'
 # gem 'rails-assets-magnific-popup'
 # gem 'rails-assets-slick.js'
+
+# Dropbox
+gem 'dropbox-sdk'
+# gem 'omniauth-dropbox-oauth2'

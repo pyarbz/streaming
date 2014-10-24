@@ -1,18 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Detail, :type => :model do
-
-  it 'path should not be empty' do
-    detail = Detail.new(
-        path: '////',
-        bitcasa_created_at: '2004-10-19 10:23:54',
-        bitcasa_modified_at: '2004-10-19 10:23:54',
-        bitcasa_changed_at: '2004-10-19 10:23:54',
-        size: 4
-    )
-    expect(detail).not_to be_valid
-    expect(detail.errors[:path]).to be_present
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
+  # it 'path should not be empty' do
+  #   detail = Detail.new(
+  #       path: '////',
+  #       bitcasa_created_at: '2004-10-19 10:23:54',
+  #       bitcasa_modified_at: '2004-10-19 10:23:54',
+  #       bitcasa_changed_at: '2004-10-19 10:23:54',
+  #       size: 4
+  #   )
+  #   expect(detail).not_to be_valid
+  #   expect(detail.errors[:path]).to be_present
+  # end
 
   # it "path include /, return error" do
   #   detail = Detail.new
