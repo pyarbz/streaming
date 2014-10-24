@@ -38,7 +38,7 @@ module DropboxHelper
     else
       ret_datas['path'] = datas['path']
       ret_datas['is_dir'] = datas['is_dir']
-      ret_datas['bytes'] = datas['bytes']
+      ret_datas['size'] = datas['bytes']
       ret_datas['modified'] = datas['modified']
       ret_datas['request'] = true
 
@@ -52,18 +52,17 @@ module DropboxHelper
             ret_data = {}
             ret_data['path'] = data['path']
             ret_data['is_dir'] = data['is_dir']
-            ret_data['bytes'] = data['bytes']
+            ret_data['size'] = data['bytes']
             ret_data['modified'] = data['modified']
 
             # 子がファイルだった場合
             unless data['is_dir']
+              extension = nil
               # 拡張子を持っていた場合
-              if datas['path'].include?('.')
-                extension = datas['path'].split('.').last
-              else
-                extension = nil
+              if data['path'].include?('.')
+                extension = data['path'].split('.').last
               end
-              ret_data['mime_type'] = data['mime_type']
+              ret_data['mimetype'] = data['mime_type']
               ret_data['extension'] = extension
               ret_data['client_mtime'] = data['client_mtime']
             end
@@ -73,13 +72,12 @@ module DropboxHelper
 
         # フォルダだった場合
       else
+        extension = nil
         # 拡張子を持っていた場合
         if datas['path'].include?('.')
           extension = datas['path'].split('.').last
-        else
-          extension = nil
         end
-        ret_datas['mime_type'] = datas['mime_type']
+        ret_datas['mimetype'] = datas['mime_type']
         ret_datas['extension'] = extension
         ret_datas['client_mtime'] = datas['client_mtime']
       end
@@ -97,7 +95,7 @@ module DropboxHelper
     ret_data = {
         'url' => nil,
         # 'expires' => nil,
-        'mime_type' => nil,
+        'mimetype' => nil,
         'request'=> false
     }
 
@@ -114,7 +112,7 @@ module DropboxHelper
         data = client.media(this_params['path'])
         ret_data['url'] = data['url']
         # ret_data['expires'] = data['expires']
-        ret_data['mime_type'] = info['mime_type']
+        ret_data['mimetype'] = info['mimetype']
         return ret_data
       end
     end

@@ -2,9 +2,8 @@ class CreateDetails < ActiveRecord::Migration
   def change
     create_table :details do |t|
       t.string :path, null: false
-      t.datetime :bitcasa_created_at, null: false
-      t.datetime :bitcasa_modified_at, null: false
-      t.datetime :bitcasa_changed_at, null: false
+      t.boolean :is_dir, null: false
+      t.datetime :dropbox_modified_at, null: false
       t.integer :size, null: false, default: 0, limit: 8
       t.boolean :high_definition, null: false, default: false
       t.boolean :blu_ray, null: false, default: false

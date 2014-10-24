@@ -1,4 +1,4 @@
-class BitcasaFile < ActiveRecord::Base
+class DetailFile < ActiveRecord::Base
   belongs_to :mimetype
   belongs_to :extension
   belongs_to :detail

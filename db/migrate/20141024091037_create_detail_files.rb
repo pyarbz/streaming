@@ -1,12 +1,11 @@
-class CreateBitcasaFiles < ActiveRecord::Migration
+class CreateDetailFiles < ActiveRecord::Migration
   def change
-    create_table :bitcasa_files do |t|
+    create_table :detail_files do |t|
       t.string :name, null: false
-      t.string :file_id, null: false
+      t.datetime :file_modified_at, null: false
       t.references :mimetype, index: true
       t.references :extension, index: true
       t.references :detail, index: true, null: false
     end
-    add_index :bitcasa_files, :file_id, unique: true
   end
 end

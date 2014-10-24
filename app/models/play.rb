@@ -1,4 +1,4 @@
 class Play < ActiveRecord::Base
   belongs_to :user
-  belongs_to :bitcasa_file
+  belongs_to :detail_file
 end
