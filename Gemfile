@@ -49,7 +49,7 @@ gem 'foreigner'
 
 # BDD
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.1.0'
   gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
   gem 'capybara'
@@ -83,7 +83,7 @@ group :production do
 end
 
 # Use travis CI command
-gem 'travis',          group: :development
+gem 'travis', '~> 1.7.2', group: :development
 
 # Github Oauth
 gem 'devise'
