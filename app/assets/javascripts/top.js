@@ -149,7 +149,7 @@
             };
 
             var name = $(this).text().trim();
-            $.getJSON('http://a.pyar.bz/api/folders', {'filepath': path[name]}).success(success).error(ns.loadingOff);
+            $.getJSON('/api/bitcasa/folder', {'filepath': path[name]}).success(success).error(ns.loadingOff);
         });
 
         // ----------------------------
@@ -165,7 +165,7 @@
             };
 
             var name = $(this).text().trim();
-            $.getJSON('http://a.pyar.bz/api/file', {'filepath': path[name], 'filename': name}).success(success).error(ns.loadingOff);
+            $.getJSON('/api/bitcasa/file', {'filepath': path[name], 'filename': name}).success(success).error(ns.loadingOff);
         });
 
     };
@@ -203,7 +203,7 @@ $(function() {
     streaming.setAnimeTable(animeList);
 
     // Bitcasa エクスプローラーを更新
-    $.getJSON('http://a.pyar.bz/api/folders', {'filepath': '/'}, function(json){
+    $.getJSON('/api/bitcasa/folder', {'filepath': '/'}, function(json){
         streaming.setExplorer(json);
         streaming.loadingOff();
     });

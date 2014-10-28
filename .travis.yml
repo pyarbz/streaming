@@ -7,10 +7,8 @@ before_install:
   - gem --version
 script:
   - bundle exec rake db:drop db:create db:migrate
+#  - bundle exec rake db:test:prepare
   - bundle exec rspec spec
-env:
-  global:
-    secure: XrfB28vU0Gumfh6FfYS50bu00xBjRKT5qPtlqqNQJglS/VCNBtLvc6JCjevya3fpE4UwTxt0u31weh45qUWvnN8Oq7CjFNWpnLovrhd4RnRyPCIq7Hj0dFBihzlV7uS3NVDKfpRVFRmUkpPP8vWXwvZ1k/GnN0ZvxQhj50BZ4mk=
 deploy:
   provider: heroku
   api_key:

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
+# source 'https://rails-assets.org'
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -44,10 +44,15 @@ gem 'sqlite3', group: [:development, :test]
 # Use http Clients
 gem 'httpclient'
 
+# database settings
+gem 'foreigner'
+
 # BDD
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.1.0'
   gem 'spring-commands-rspec'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'guard-spring'
@@ -59,6 +64,8 @@ end
 
 # Debugger
 group :development do
+  #  gem 'pry', '~> 0.10.1'
+  gem 'pry', '~> 0.10.1'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
@@ -68,16 +75,19 @@ group :development do
   gem 'hirb-unicode'
 end
 
+# Postgresql settings
+gem 'pg', group: [:development, :production]
+
 # heroku settings
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
+  # gem 'pg'
   gem 'newrelic_rpm'
   gem 'unicorn'
 end
 
 # Use travis CI command
-gem 'travis',          group: :development
+gem 'travis', '~> 1.6.11', group: :development
 
 # Github Oauth
 gem 'devise'
@@ -110,3 +120,7 @@ gem 'html2slim', group: :development
 # gem 'rails-assets-sprintf'
 # gem 'rails-assets-magnific-popup'
 # gem 'rails-assets-slick.js'
+
+# Dropbox
+gem 'dropbox-sdk'
+# gem 'omniauth-dropbox-oauth2'

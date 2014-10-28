@@ -19,6 +19,17 @@ Rails.application.routes.draw do
   match '/api/folders', to: 'bitcasa#getfolders', via: 'get'
   match '/api/file', to: 'bitcasa#getfiles', via: 'get'
 
+  # API page is bitcasa/api
+  match '/api/bitcasa', to: 'bitcasa#api', via: 'get'
+  match '/api/bitcasa/folder', to: 'bitcasa#getfolders', via: 'get'
+  match '/api/bitcasa/file', to: 'bitcasa#getfiles', via: 'get'
+
+  # API page is dropbox/api
+  match '/api/dropbox', to: 'dropbox#index', via: 'get'
+  match '/api/dropbox/folder', to: 'dropbox#getfolders', via: 'get'
+  match '/api/dropbox/file', to: 'dropbox#getfiles', via: 'get'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
