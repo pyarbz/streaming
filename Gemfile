@@ -51,6 +51,8 @@ gem 'foreigner'
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'spring-commands-rspec'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'guard-spring'
@@ -62,6 +64,8 @@ end
 
 # Debugger
 group :development do
+  #  gem 'pry', '~> 0.10.1'
+  gem 'pry', '~> 0.10.1'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
@@ -83,7 +87,7 @@ group :production do
 end
 
 # Use travis CI command
-gem 'travis', '~> 1.7.2', group: :development
+gem 'travis', '~> 1.6.11', group: :development
 
 # Github Oauth
 gem 'devise'
