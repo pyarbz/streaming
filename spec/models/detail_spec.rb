@@ -15,7 +15,6 @@ RSpec.describe Detail, :type => :model do
 
     detail.path = '/animetest'
     detail.is_dir = true
-    # detail.set_time_zone(dropbox_modified_at)
     detail.dropbox_modified_at = dropbox_modified_at
 
 
@@ -31,7 +30,6 @@ RSpec.describe Detail, :type => :model do
     end
 
     # is_dirはnil不可
-    # it { is_expected.to validate_inclusion_of(:is_dir).in_array([true, false]) }
     it { is_expected.to allow_value(true).for(:is_dir) }
     it { is_expected.to allow_value(false).for(:is_dir) }
     it { is_expected.not_to allow_value(nil).for(:is_dir) }
@@ -53,9 +51,7 @@ RSpec.describe Detail, :type => :model do
 
       detail.is_dir = true
       detail.size = 0
-      # detail.set_time_zone(Time.zone.now)
       detail.dropbox_modified_at = Time.zone.now
-
 
 
       detail.path = "/hogehoge"
@@ -71,7 +67,6 @@ RSpec.describe Detail, :type => :model do
       detail.size = 0
 
       detail.path = 'animetest'
-      # detail.set_time_zone(Time.zone.now)
       detail.dropbox_modified_at = Time.zone.now
 
 
@@ -84,7 +79,6 @@ RSpec.describe Detail, :type => :model do
       detail.size = 152
 
       detail.path = 'animetest'
-      # detail.set_time_zone(Time.zone.now)
       detail.dropbox_modified_at = Time.zone.now
 
 
@@ -97,7 +91,6 @@ RSpec.describe Detail, :type => :model do
       detail.size = 0
 
       detail.path = 'animetest'
-      # detail.set_time_zone(Time.zone.now)
       detail.dropbox_modified_at = Time.zone.now
 
       expect(detail.dir_size).to be_truthy

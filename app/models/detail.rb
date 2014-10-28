@@ -44,30 +44,21 @@ class Detail < ActiveRecord::Base
   # pathが/を含まないことの確認
   # /を含んだらfalseを返す
 
+
   def not_have_slash
-    if self.path.include?('/')
-      false
-    else
-      true
-    end
+    !self.path.include?('/') ? true : false
   end
 
 
   # directoryのサイズは0であることの確認
+  # is_dir = false のとき true
   # is_dir = true かつ size = 0 のとき true
   # is_dir = true かつ size != 0 のとき false
-  # is_dir = false のとき true
+
 
   def dir_size
-    if self.is_dir
-      if self.size == 0
-        true
-      else
-        false
-      end
-    else
-      true
-    end
+    return true unless self.is_dir
+    self.size == 0 ? true : false
   end
 
 
@@ -87,6 +78,5 @@ class Detail < ActiveRecord::Base
   #     false
   #   end
   # end
-
 
 end
