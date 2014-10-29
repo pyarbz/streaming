@@ -99,7 +99,6 @@ RSpec.describe Detail, :type => :model do
 
   end
 
-
   # set_time_zoneで与えるデータのクラスの確認
   # describe :dropbox_modified_at do
   #   it "is setted as ActiveSupport::TimeWithZone class" do
@@ -120,7 +119,6 @@ RSpec.describe Detail, :type => :model do
   #     expect(detail.dropbox_modified_at.blank?).to be_truthy
   #   end
   # end
-
 
   # pending "add some examples to (or delete) #{__FILE__}"
 end

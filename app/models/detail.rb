@@ -61,7 +61,6 @@ class Detail < ActiveRecord::Base
     self.size == 0 ? true : false
   end
 
-
   # dropbox_modified_atに時間をセットする
   # Class = Time or DateTime だった場合、time_zoneに直してセット
   # Class = ActiveSupport::TimeWithZone だった場合、そのままセット
