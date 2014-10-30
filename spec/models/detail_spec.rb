@@ -18,6 +18,12 @@ RSpec.describe Detail, :type => :model do
     detail.dropbox_modified_at = dropbox_modified_at
 
 
+    # detail.season_id = 1
+    # detail.year_id = nil
+    # detail.category_id = nil
+    # detail.medium_id = nil
+    # detail.genre_id = nil
+
     detail.size = 0
     expect(detail).to be_valid
   end
@@ -44,6 +50,19 @@ RSpec.describe Detail, :type => :model do
     it { is_expected.to validate_numericality_of(:size).only_integer }
 
   end
+
+  describe "foreign key" do
+    # 外部キーに無いidを入力不可
+    %w{season_id year_id genre_id category_id medium_id}.each do |column|
+      it "should have existence #{column}" do
+        # file.detail_id = 1000000
+        detail[column] = 100000
+        expect(detail).not_to be_valid
+
+      end
+    end
+  end
+
 
   # pathは/を含めない
   describe :path do

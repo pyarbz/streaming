@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024091054) do
+ActiveRecord::Schema.define(version: 20141030175409) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "count",          default: 0,     null: false
@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 20141024091054) do
   add_index "detail_files", ["mimetype_id"], name: "index_detail_files_on_mimetype_id"
 
   create_table "detail_folders", force: true do |t|
-    t.string  "name",      null: false
-    t.string  "hash",      null: false
-    t.integer "detail_id", null: false
+    t.string  "name",        null: false
+    t.string  "folder_hash", null: false
+    t.integer "detail_id",   null: false
   end
 
   add_index "detail_folders", ["detail_id"], name: "index_detail_folders_on_detail_id"
-  add_index "detail_folders", ["hash"], name: "index_detail_folders_on_hash", unique: true
+  add_index "detail_folders", ["folder_hash"], name: "index_detail_folders_on_folder_hash", unique: true
 
   create_table "detail_tags", force: true do |t|
     t.integer  "detail_id",  null: false
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20141024091054) do
   add_index "details", ["year_id"], name: "index_details_on_year_id"
 
   create_table "extensions", force: true do |t|
-    t.string  "name",      null: false
-    t.integer "medium_id", null: false
+    t.string  "name",      limit: 10, null: false
+    t.integer "medium_id",            null: false
   end
 
   add_index "extensions", ["medium_id"], name: "index_extensions_on_medium_id"
@@ -113,14 +113,14 @@ ActiveRecord::Schema.define(version: 20141024091054) do
   add_index "genres", ["name"], name: "index_genres_on_name", unique: true
 
   create_table "media", force: true do |t|
-    t.string "name", null: false
+    t.string "name", limit: 15, null: false
   end
 
   add_index "media", ["name"], name: "index_media_on_name", unique: true
 
   create_table "mimetypes", force: true do |t|
-    t.string  "name",      null: false
-    t.integer "medium_id", null: false
+    t.string  "name",      limit: 20, null: false
+    t.integer "medium_id",            null: false
   end
 
   add_index "mimetypes", ["medium_id"], name: "index_mimetypes_on_medium_id"

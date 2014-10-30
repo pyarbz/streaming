@@ -38,13 +38,70 @@ class Detail < ActiveRecord::Base
   validates :dropbox_modified_at,
             presence: true
 
+
+  validate :season_exists?,
+           :year_exists?,
+           :genre_exists?,
+           :category_exists?,
+           :medium_exists?
+
   before_save :not_have_slash, :dir_size
+
+
+  # 外部キーになかったら入力させない
+  private
+  def season_exists?
+    # nilを許可
+    return true if season_id == nil
+    unless Season.exists?(season_id)
+      errors.add(:season_id, 'season_id is not exist')
+    end
+  end
+
+  # 外部キーになかったら入力させない
+  private
+  def year_exists?
+    # nilを許可
+    return true if year_id == nil
+    unless Year.exists?(year_id)
+      errors.add(:year_id, 'year_id is not exist')
+    end
+  end
+
+  # 外部キーになかったら入力させない
+  private
+  def genre_exists?
+    # nilを許可
+    return true if genre_id == nil
+    unless Genre.exists?(genre_id)
+      errors.add(:genre_id, 'genre_id is not exist')
+    end
+  end
+
+  # 外部キーになかったら入力させない
+  private
+  def category_exists?
+    # nilを許可
+    return true if category_id == nil
+    unless Category.exists?(category_id)
+      errors.add(:category_id, 'category_id is not exist')
+    end
+  end
+
+  # 外部キーになかったら入力させない
+  private
+  def medium_exists?
+    # nilを許可
+    return true if medium_id == nil
+    unless Medium.exists?(medium_id)
+      errors.add(:medium_id, 'medium_id is not exist')
+    end
+  end
 
 
   # pathが/を含まないことの確認
   # /を含んだらfalseを返す
-
-
+  public
   def not_have_slash
     !self.path.include?('/') ? true : false
   end
@@ -54,8 +111,7 @@ class Detail < ActiveRecord::Base
   # is_dir = false のとき true
   # is_dir = true かつ size = 0 のとき true
   # is_dir = true かつ size != 0 のとき false
-
-
+  public
   def dir_size
     return true unless self.is_dir
     self.size == 0 ? true : false
