@@ -1,12 +1,12 @@
 class DetailClosure < ActiveRecord::Base
 
-  belongs_to :descendant_detail,
-             :class_name => 'Detail',
-             :foreign_key => 'descendant_detail_id'
+  belongs_to :ancestor_relationship,
+             class_name: 'Detail',
+             foreign_key: 'ancestor_detail_id'
 
-  belongs_to :ancestor_detail,
-             :class_name => 'Detail',
-             :foreign_key => 'ancestor_detail_id'
+  belongs_to :descendant_relationship,
+             class_name: 'Detail',
+             foreign_key: 'descendant_detail_id'
 
   validates :depth,
             presence: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030175409) do
+ActiveRecord::Schema.define(version: 20141102181647) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "count",          default: 0,     null: false
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20141030175409) do
     t.integer "ancestor_detail_id",   null: false
     t.integer "descendant_detail_id", null: false
   end
+
+  add_index "detail_closures", ["ancestor_detail_id", "descendant_detail_id"], name: "index_closure_id", unique: true
+  add_index "detail_closures", ["ancestor_detail_id"], name: "index_detail_closures_on_ancestor_detail_id"
+  add_index "detail_closures", ["descendant_detail_id"], name: "index_detail_closures_on_descendant_detail_id"
 
   create_table "detail_files", force: true do |t|
     t.string   "name",             null: false
@@ -88,6 +92,8 @@ ActiveRecord::Schema.define(version: 20141030175409) do
     t.integer  "genre_id"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+    t.boolean  "is_root",                       default: false, null: false
+    t.boolean  "have_child",                                    null: false
   end
 
   add_index "details", ["category_id"], name: "index_details_on_category_id"
@@ -119,8 +125,8 @@ ActiveRecord::Schema.define(version: 20141030175409) do
   add_index "media", ["name"], name: "index_media_on_name", unique: true
 
   create_table "mimetypes", force: true do |t|
-    t.string  "name",      limit: 20, null: false
-    t.integer "medium_id",            null: false
+    t.string  "name",      null: false
+    t.integer "medium_id", null: false
   end
 
   add_index "mimetypes", ["medium_id"], name: "index_mimetypes_on_medium_id"

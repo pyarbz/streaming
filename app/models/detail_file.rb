@@ -44,7 +44,7 @@ class DetailFile < ActiveRecord::Base
   def extension_exists?
     # nilを許可
     return true if extension_id == nil
-    unless Mimetype.exists?(extension_id)
+    unless Extension.exists?(extension_id)
       errors.add(:extension_id, 'extension_id is not exist')
     end
   end

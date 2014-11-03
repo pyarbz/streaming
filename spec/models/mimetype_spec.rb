@@ -21,8 +21,6 @@ RSpec.describe Mimetype, :type => :model do
       expect(mimetype).to validate_uniqueness_of(:name)
     end
 
-    # nameの文字数は多くて20文字まで
-    it { is_expected.to ensure_length_of(:name).is_at_most(20) }
   end
 
   describe "foreign key" do

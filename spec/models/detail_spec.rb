@@ -40,11 +40,6 @@ RSpec.describe Detail, :type => :model do
     it { is_expected.to allow_value(false).for(:is_dir) }
     it { is_expected.not_to allow_value(nil).for(:is_dir) }
 
-
-    # pathの文字数は多くて22文字まで
-    it { is_expected.to ensure_length_of(:path).is_at_most(22) }
-
-
     # sizeは自然数(0を含む)
     it { is_expected.to validate_numericality_of(:size).is_greater_than_or_equal_to(0) }
     it { is_expected.to validate_numericality_of(:size).only_integer }

@@ -5,23 +5,46 @@ class Detail < ActiveRecord::Base
   belongs_to :medium
   belongs_to :genre
 
-  has_one :detail_files,
-          :class_name => 'BitcasaFile',
-          :dependent => :destroy
+  # has_one :detail_file,
+  #         class_name: 'BitcasaFile',
+  #         dependent: :destroy
+  #
+  # has_one :detail_folder,
+  #         class_name: 'BitcasaFolder',
+  #         dependent: :destroy
 
-  has_one :detail_folders,
-          :class_name => 'BitcasaFolder',
-          :dependent => :destroy
+  has_one :file,
+          class_name: 'DetailFile',
+          dependent: :destroy
+
+  has_one :folder,
+          class_name: 'DetailFolder',
+          dependent: :destroy
 
   has_many :detail_tags,
-           :dependent => :destroy
+           dependent: :destroy
 
   has_many :tags,
-           :through => :detail_tags
+           through: :detail_tags
+
+  has_many :ancestor_relations,
+           class_name: 'DetailClosure',
+           foreign_key: 'ancestor_detail_id'
+
+  has_many :descendant_relations,
+           class_name: 'DetailClosure',
+           foreign_key: 'descendant_detail_id'
+
+  has_many :ancestors,
+           through: :descendant_relations,
+           source: :ancestor_relationship
+
+  has_many :descendants,
+           through: :ancestor_relations,
+           source: :descendant_relationship
 
   validates :path,
-            presence: true,
-            length: { maximum: 22 }
+            presence: true
 
   validates :size,
             presence: true,

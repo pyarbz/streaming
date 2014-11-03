@@ -1,6 +1,6 @@
 class Extension < ActiveRecord::Base
   belongs_to :medium
-  has_many :bitcasa_files
+  has_many :detail_files
 
   validates :name,
             presence: true,
