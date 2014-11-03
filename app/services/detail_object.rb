@@ -297,15 +297,18 @@ class DetailObject
 
     path_array = path.split('/')
     path_name = path_array.last
-    path_size = path_array.size
+    path_height = path_array.size
 
 
     # details.pathに同じ名前が存在するか確認する
     detail = Detail.where('details.path = ?', path_name)
 
 
+
+
     detail.joins(:descendant_relations => :ancestor_relationship)
-          .where('ancestor_detail_id = ?', 1)
+          .where('detail_closures.ancestor_detail_id = ?', 1)
+          .where('detail_closures.ancestor_detail_id = ?', 1)
           .select('ancestor_relationships_detail_closures.*')
 
     true

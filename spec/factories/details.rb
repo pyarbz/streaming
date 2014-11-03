@@ -6,6 +6,8 @@ FactoryGirl.define do
     movie false
     ova false
     complete false
+    is_root false
+    have_child false
   end
 
   factory :detail_true_folder, class: Detail do
@@ -24,6 +26,8 @@ FactoryGirl.define do
     genre nil
     category nil
     medium nil
+    is_root false
+    have_child false
   end
 
   factory :detail_true_file, class: Detail do
@@ -42,6 +46,8 @@ FactoryGirl.define do
     genre nil
     category nil
     medium nil
+    is_root false
+    have_child false
   end
 
 end
