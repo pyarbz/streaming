@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141102181647) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "bookmarks", force: true do |t|
     t.integer  "count",          default: 0,     null: false
     t.boolean  "flag",           default: false, null: false
@@ -25,16 +22,16 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.datetime "updated_at",                     null: false
   end
 
-  add_index "bookmarks", ["detail_file_id"], name: "index_bookmarks_on_detail_file_id", using: :btree
-  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+  add_index "bookmarks", ["detail_file_id"], name: "index_bookmarks_on_detail_file_id"
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "categories", force: true do |t|
     t.string  "name",      null: false
     t.integer "medium_id", null: false
   end
 
-  add_index "categories", ["medium_id"], name: "index_categories_on_medium_id", using: :btree
-  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+  add_index "categories", ["medium_id"], name: "index_categories_on_medium_id"
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
 
   create_table "detail_closures", force: true do |t|
     t.integer "depth",                null: false
@@ -42,9 +39,9 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.integer "descendant_detail_id", null: false
   end
 
-  add_index "detail_closures", ["ancestor_detail_id", "descendant_detail_id"], name: "index_closure_id", unique: true, using: :btree
-  add_index "detail_closures", ["ancestor_detail_id"], name: "index_detail_closures_on_ancestor_detail_id", using: :btree
-  add_index "detail_closures", ["descendant_detail_id"], name: "index_detail_closures_on_descendant_detail_id", using: :btree
+  add_index "detail_closures", ["ancestor_detail_id", "descendant_detail_id"], name: "index_closure_id", unique: true
+  add_index "detail_closures", ["ancestor_detail_id"], name: "index_detail_closures_on_ancestor_detail_id"
+  add_index "detail_closures", ["descendant_detail_id"], name: "index_detail_closures_on_descendant_detail_id"
 
   create_table "detail_files", force: true do |t|
     t.string   "name",             null: false
@@ -54,9 +51,9 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.integer  "detail_id",        null: false
   end
 
-  add_index "detail_files", ["detail_id"], name: "index_detail_files_on_detail_id", using: :btree
-  add_index "detail_files", ["extension_id"], name: "index_detail_files_on_extension_id", using: :btree
-  add_index "detail_files", ["mimetype_id"], name: "index_detail_files_on_mimetype_id", using: :btree
+  add_index "detail_files", ["detail_id"], name: "index_detail_files_on_detail_id"
+  add_index "detail_files", ["extension_id"], name: "index_detail_files_on_extension_id"
+  add_index "detail_files", ["mimetype_id"], name: "index_detail_files_on_mimetype_id"
 
   create_table "detail_folders", force: true do |t|
     t.string  "name",        null: false
@@ -64,8 +61,8 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.integer "detail_id",   null: false
   end
 
-  add_index "detail_folders", ["detail_id"], name: "index_detail_folders_on_detail_id", using: :btree
-  add_index "detail_folders", ["folder_hash"], name: "index_detail_folders_on_folder_hash", unique: true, using: :btree
+  add_index "detail_folders", ["detail_id"], name: "index_detail_folders_on_detail_id"
+  add_index "detail_folders", ["folder_hash"], name: "index_detail_folders_on_folder_hash", unique: true
 
   create_table "detail_tags", force: true do |t|
     t.integer  "detail_id",  null: false
@@ -74,8 +71,8 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "detail_tags", ["detail_id"], name: "index_detail_tags_on_detail_id", using: :btree
-  add_index "detail_tags", ["tag_id"], name: "index_detail_tags_on_tag_id", using: :btree
+  add_index "detail_tags", ["detail_id"], name: "index_detail_tags_on_detail_id"
+  add_index "detail_tags", ["tag_id"], name: "index_detail_tags_on_tag_id"
 
   create_table "details", force: true do |t|
     t.string   "path",                                          null: false
@@ -99,41 +96,41 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.boolean  "have_child",                                    null: false
   end
 
-  add_index "details", ["category_id"], name: "index_details_on_category_id", using: :btree
-  add_index "details", ["genre_id"], name: "index_details_on_genre_id", using: :btree
-  add_index "details", ["medium_id"], name: "index_details_on_medium_id", using: :btree
-  add_index "details", ["season_id"], name: "index_details_on_season_id", using: :btree
-  add_index "details", ["year_id"], name: "index_details_on_year_id", using: :btree
+  add_index "details", ["category_id"], name: "index_details_on_category_id"
+  add_index "details", ["genre_id"], name: "index_details_on_genre_id"
+  add_index "details", ["medium_id"], name: "index_details_on_medium_id"
+  add_index "details", ["season_id"], name: "index_details_on_season_id"
+  add_index "details", ["year_id"], name: "index_details_on_year_id"
 
   create_table "extensions", force: true do |t|
     t.string  "name",      limit: 10, null: false
     t.integer "medium_id",            null: false
   end
 
-  add_index "extensions", ["medium_id"], name: "index_extensions_on_medium_id", using: :btree
-  add_index "extensions", ["name"], name: "index_extensions_on_name", unique: true, using: :btree
+  add_index "extensions", ["medium_id"], name: "index_extensions_on_medium_id"
+  add_index "extensions", ["name"], name: "index_extensions_on_name", unique: true
 
   create_table "genres", force: true do |t|
     t.string  "name",        null: false
     t.integer "category_id", null: false
   end
 
-  add_index "genres", ["category_id"], name: "index_genres_on_category_id", using: :btree
-  add_index "genres", ["name"], name: "index_genres_on_name", unique: true, using: :btree
+  add_index "genres", ["category_id"], name: "index_genres_on_category_id"
+  add_index "genres", ["name"], name: "index_genres_on_name", unique: true
 
   create_table "media", force: true do |t|
     t.string "name", limit: 15, null: false
   end
 
-  add_index "media", ["name"], name: "index_media_on_name", unique: true, using: :btree
+  add_index "media", ["name"], name: "index_media_on_name", unique: true
 
   create_table "mimetypes", force: true do |t|
     t.string  "name",      null: false
     t.integer "medium_id", null: false
   end
 
-  add_index "mimetypes", ["medium_id"], name: "index_mimetypes_on_medium_id", using: :btree
-  add_index "mimetypes", ["name"], name: "index_mimetypes_on_name", unique: true, using: :btree
+  add_index "mimetypes", ["medium_id"], name: "index_mimetypes_on_medium_id"
+  add_index "mimetypes", ["name"], name: "index_mimetypes_on_name", unique: true
 
   create_table "plays", force: true do |t|
     t.integer  "count",          default: 0, null: false
@@ -142,20 +139,20 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.integer  "detail_file_id",             null: false
   end
 
-  add_index "plays", ["detail_file_id"], name: "index_plays_on_detail_file_id", using: :btree
-  add_index "plays", ["user_id"], name: "index_plays_on_user_id", using: :btree
+  add_index "plays", ["detail_file_id"], name: "index_plays_on_detail_file_id"
+  add_index "plays", ["user_id"], name: "index_plays_on_user_id"
 
   create_table "seasons", force: true do |t|
     t.string "name", null: false
   end
 
-  add_index "seasons", ["name"], name: "index_seasons_on_name", unique: true, using: :btree
+  add_index "seasons", ["name"], name: "index_seasons_on_name", unique: true
 
   create_table "tags", force: true do |t|
     t.string "name", null: false
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -176,14 +173,14 @@ ActiveRecord::Schema.define(version: 20141102181647) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
   create_table "years", force: true do |t|
     t.integer "year", null: false
   end
 
-  add_index "years", ["year"], name: "index_years_on_year", unique: true, using: :btree
+  add_index "years", ["year"], name: "index_years_on_year", unique: true
 
 end
