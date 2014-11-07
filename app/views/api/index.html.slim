@@ -1,3 +1,15 @@
 h1
   | Api#index
-  = debug(@data)
+  /= debug(@data)
+  p next_id:
+  = debug(@next_id)
+  p this_id:
+  = debug(@this_id)
+  p destroy:
+  = debug(@destroy_id)
+  p result_next:
+  = @result_next.to_s + 's'
+  p result_this:
+  = @result_this.to_s + 's'
+  p result_destroy:
+  = @result_destroy.to_s + 's'

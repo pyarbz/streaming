@@ -34,9 +34,10 @@ Rails.application.routes.draw do
   match '/api', to: 'api#index', via: 'get'
   match '/api/root', to: 'api#get_root_info', via: 'get'
   match '/api/detail', to: 'api#get_object_info', via: 'get'
+  match '/api/detail/create', to: 'api#create_detail', via: 'get'
 
 
-  # The priority is based upon order of creation: first created -> highest priority.
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

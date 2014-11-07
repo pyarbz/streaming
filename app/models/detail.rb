@@ -5,14 +5,6 @@ class Detail < ActiveRecord::Base
   belongs_to :medium
   belongs_to :genre
 
-  # has_one :detail_file,
-  #         class_name: 'BitcasaFile',
-  #         dependent: :destroy
-  #
-  # has_one :detail_folder,
-  #         class_name: 'BitcasaFolder',
-  #         dependent: :destroy
-
   has_one :file,
           class_name: 'DetailFile',
           dependent: :destroy

@@ -174,4 +174,20 @@ module DropboxHelper
     }
     return this_param
   end
+
+  # dropboxAPIから、子のpathリストを配列として返すメソッド
+  # data: DropboxHelper.get_fileListのhashデータ
+  # path_list: 配列データ。中身はstringのpath
+  def self.dropbox_api_file_list(data)
+    path_list = []
+
+    data[:contents].each do |content|
+      unless content[:is_dir] #ファイルのみ
+        path_list.push(content[:path])
+      end
+    end
+
+    return path_list
+  end
+
 end
