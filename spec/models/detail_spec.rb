@@ -18,6 +18,12 @@ RSpec.describe Detail, :type => :model do
     detail.dropbox_modified_at = dropbox_modified_at
 
 
+    # detail.season_id = 1
+    # detail.year_id = nil
+    # detail.category_id = nil
+    # detail.medium_id = nil
+    # detail.genre_id = nil
+
     detail.size = 0
     expect(detail).to be_valid
   end
@@ -34,16 +40,24 @@ RSpec.describe Detail, :type => :model do
     it { is_expected.to allow_value(false).for(:is_dir) }
     it { is_expected.not_to allow_value(nil).for(:is_dir) }
 
-
-    # pathの文字数は多くて22文字まで
-    it { is_expected.to ensure_length_of(:path).is_at_most(22) }
-
-
     # sizeは自然数(0を含む)
     it { is_expected.to validate_numericality_of(:size).is_greater_than_or_equal_to(0) }
     it { is_expected.to validate_numericality_of(:size).only_integer }
 
   end
+
+  describe "foreign key" do
+    # 外部キーに無いidを入力不可
+    %w{season_id year_id genre_id category_id medium_id}.each do |column|
+      it "should have existence #{column}" do
+        # file.detail_id = 1000000
+        detail[column] = 100000
+        expect(detail).not_to be_valid
+
+      end
+    end
+  end
+
 
   # pathは/を含めない
   describe :path do
@@ -99,7 +113,6 @@ RSpec.describe Detail, :type => :model do
 
   end
 
-
   # set_time_zoneで与えるデータのクラスの確認
   # describe :dropbox_modified_at do
   #   it "is setted as ActiveSupport::TimeWithZone class" do
@@ -120,7 +133,6 @@ RSpec.describe Detail, :type => :model do
   #     expect(detail.dropbox_modified_at.blank?).to be_truthy
   #   end
   # end
-
 
   # pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -8,91 +8,79 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Season.create(name: "spring")
-Season.create(name: "summer")
-Season.create(name: "autumn")
-Season.create(name: "winter")
+require 'csv'
 
-for year_num in 2000..2015 do
-  Year.create(year: year_num)
+# medium settings
+medium_csv = CSV.readlines('db/data/media.csv')
+medium_csv.shift #1行目は飛ばす
+medium_csv.each do |row|
+  medium = Medium.new
+  medium.name = row[0]
+  medium.save!
 end
 
+# extension_media settings
+extension_csv = CSV.readlines('db/data/extension_media.csv')
+extension_csv.shift #1行目は飛ばす
+extension_csv.each do |row|
+  medium = Medium.find_or_create_by(name: row[0])
 
-# start video settings
-video = Medium.create(name: "video")
-video.extensions.create(name: "mp4")
-video.extensions.create(name: "flv")
-video.extensions.create(name: "avi")
-video.extensions.create(name: "mpeg")
-video.extensions.create(name: "mpg")
-video.extensions.create(name: "mp2")
-video.extensions.create(name: "mov")
+  extension = if Extension.exists?(name: row[1])
+                Extension.find_by(name: row[1])
+              else
+                Extension.new(
+                  name: row[1],
+                  medium_id: medium.id
+                )
+              end
 
-anime = video.categories.create(name: "アニメ")
-anime.genres.create(name: "日常")
-anime.genres.create(name: "ロボット")
-anime.genres.create(name: "戦闘")
-anime.genres.create(name: "恋愛")
+  extension.save!
 
-video.categories.create(name: "ドラマ")
-video.categories.create(name: "実写")
+  # 大文字も作成
+  capital_row = row[1].upcase
+  extension_capital = if Extension.exists?(name: capital_row)
+                        Extension.find_by(name: capital_row)
+                      else
+                        Extension.new(
+                          name: capital_row,
+                          medium_id: medium.id
+                        )
+                      end
 
-# end video settings
+  extension_capital.save!
 
-# start audio settings
+  mimetype = if Mimetype.exists?(name: row[2])
+               Mimetype.find_by(name: row[2])
+             else
+               Mimetype.new(
+                 name: row[2],
+                 medium_id: medium.id
+               )
+             end
 
-audio = Medium.create(name: "audio")
-audio.extensions.create(name: "wav")
-audio.extensions.create(name: "aif")
-audio.extensions.create(name: "aiff")
-audio.extensions.create(name: "wma")
-audio.extensions.create(name: "mp3")
-audio.extensions.create(name: "m4a")
-audio.extensions.create(name: "flac")
+  mimetype.save!
 
-audio.categories.create(name: "音楽")
-audio.categories.create(name: "ラジオ")
-audio.categories.create(name: "勉強")
-audio.categories.create(name: "素材")
+end
 
-# end audio settings
+# detail seed
+# param_data = {
+#   path: '/animetest',
+#   parent_id: 1
+# }
+# CreateObject.create_obj(param_data)
 
-# start image settings
+# season settings
+# season_csv = CSV.readlines('db/data/season.csv')
+# season_csv.shift #1行目は飛ばす
+# season_csv.each do |row|
+#   season = Season.new
+#   season.name = row[0]
+#   season.save!
+# end
 
-picture = Medium.create(name: "image")
-picture.extensions.create(name: "jpeg")
-picture.extensions.create(name: "jpg")
-picture.extensions.create(name: "png")
-picture.extensions.create(name: "gif")
-
-picture.categories.create(name: "漫画")
-# picture.categories.create(name: "勉強")
-# picture.categories.create(name: "素材")
-picture.categories.create(name: "写真")
-picture.categories.create(name: "壁紙")
-
-# end image settings
-
-# start document settings
-text = Medium.create(name: "document")
-# text.categories.create(name: "勉強")
-text.categories.create(name: "メモ")
-text.categories.create(name: "仕事")
-text.extensions.create(name: "pdf")
-text.extensions.create(name: "doc")
-text.extensions.create(name: "ppt")
-text.extensions.create(name: "xls")
-text.extensions.create(name: "docx")
-text.extensions.create(name: "pptx")
-text.extensions.create(name: "xlsx")
-# end document settings
-
-# start archive settings
-archive = Medium.create(name: "archive")
-archive.extensions.create(name: "zip")
-archive.extensions.create(name: "rar")
-archive.extensions.create(name: "7z")
-archive.extensions.create(name: "bz2")
-archive.extensions.create(name: "gz")
-archive.extensions.create(name: "tar")
-# end archive settings
+# year settings
+# year_renge = 2000..2015
+#
+# year_renge.each do |year_num|
+#   Year.create(year: year_num)
+# end

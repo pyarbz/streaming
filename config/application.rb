@@ -26,6 +26,9 @@ module AnimeShow
     config.sass.preferred_syntax = :sass
     config.sass.syntax = :sass
 
+    # service add
+    config.autoload_paths += %w(#{config.root}/app/services)
+
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'

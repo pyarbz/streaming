@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :detail_closure do
-    depth 1
-    detail nil
+    depth 100
+    descendant_detail_id nil
+    ancestor_detail_id nil
   end
 end

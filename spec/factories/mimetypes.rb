@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :mimetype do
-    name "MyString"
-medium nil
+    name "mimetype"
   end
 
 end
