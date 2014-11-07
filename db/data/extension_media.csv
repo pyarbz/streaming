@@ -30,3 +30,4 @@ archive,7z,application/x-7z-compressed
 archive,bz2,application/x-bzip2
 archive,gz,application/x-gzip
 archive,tar,application/x-tar
+document,txt,text/plain
