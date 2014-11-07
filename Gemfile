@@ -94,7 +94,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 # cross site domain allowed
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors', require: 'rack/cors'
 
 # Bootstrap 3.2
 # gem 'bootstrap-sass', '~> 3.2.0'
@@ -123,3 +123,6 @@ gem 'html2slim', group: :development
 # Dropbox
 gem 'dropbox-sdk'
 # gem 'omniauth-dropbox-oauth2'
+
+# background cron
+gem 'whenever', require: false

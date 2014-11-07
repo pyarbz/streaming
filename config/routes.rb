@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   # API page is bitcasa/api
   # match '/api', to: 'bitcasa#api', via: 'get'
-  #  match '/api/folders', to: 'bitcasa#getfolders', via: 'get'
-  #  match '/api/file', to: 'bitcasa#getfiles', via: 'get'
+  # match '/api/folders', to: 'bitcasa#getfolders', via: 'get'
+  # match '/api/file', to: 'bitcasa#getfiles', via: 'get'
 
   match '/api/folders', to: 'bitcasa#getfolders', via: 'get'
   match '/api/file', to: 'bitcasa#getfiles', via: 'get'
@@ -34,8 +34,6 @@ Rails.application.routes.draw do
   match '/api', to: 'api#index', via: 'get'
   match '/api/root', to: 'api#get_root_info', via: 'get'
   match '/api/detail', to: 'api#get_object_info', via: 'get'
-  # match '/api/detail/create', to: 'api#create_detail', via: 'get'
-
 
     # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
