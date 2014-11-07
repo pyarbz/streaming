@@ -64,18 +64,4 @@ class ApiController < ApplicationController
     render json: @object_info
   end
 
-  # /api/detail/create
-  # def create_detail
-  #   param_data = {
-  #     path: '/',
-  #     parent_id: nil,
-  #     layer: 0
-  #   }
-  #   @list = {
-  #     request: false
-  #   }
-  #   @list[:request] = DetailIndex.create_index(param_data)
-  #   render json: @list
-  # end
-
 end
